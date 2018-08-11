@@ -1,0 +1,34 @@
+{
+    "name": "runestat/runescape-api",
+    "description": "Runescape API",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Wade Urry",
+            "email": "hi@iwader.co.uk",
+            "homepage": "https://iwader.co.uk"
+        },
+        {
+            "name": "Joe Bode"
+        }
+    ],
+    "require": {
+        "php": "^7.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "RuneStat\\": "src"
+        }
+    },
+  "scripts": {
+    "test": "./vendor/bib/phpunit"
+  },
+  "config": {
+    "preferred-install": "dist",
+    "sort-packages": true,
+    "optimize-autoloader": true
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}
