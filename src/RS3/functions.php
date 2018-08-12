@@ -3,6 +3,7 @@
 namespace RuneStat\RS3;
 
 use RuneStat\RS3\Skills\Repository as SkillRepository;
+use RuneStat\RS3\Stats\Stat;
 
 if ( ! function_exists('\RuneStat\RS3\xp_to_level'))
 {
@@ -45,5 +46,30 @@ if ( ! function_exists('\RuneStat\RS3\validate_rsn'))
     function validate_rsn(string $rsn): bool
     {
         return (bool) preg_match('/^[a-z0-9\-_]{1,12}$/i', $rsn);
+    }
+}
+
+
+if ( ! function_exists('\RuneStat\RS3\combat_level'))
+{
+    function combat_level(
+        Stat $attack,
+        Stat $strength,
+        Stat $magic,
+        Stat $ranged,
+        Stat $defence,
+        Stat $constitution,
+        Stat $prayer,
+        Stat $summoning
+    ): int {
+        $highest = max(
+            $attack->getLevel() + $strength->getLevel(),
+            2 * $magic->getLevel(),
+            2 * $ranged->getLevel()
+        );
+
+        $rest = $defence->getLevel() + $constitution->getLevel() + floor(0.5 * $prayer->getLevel()) + floor(0.5 * $summoning->getLevel());
+
+        return floor(0.25 * ((1.3 * $highest) + $rest));
     }
 }
