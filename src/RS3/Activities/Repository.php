@@ -1,0 +1,38 @@
+<?php
+
+namespace RuneStat\RS3\Activities;
+
+use DateTime;
+
+class Repository
+{
+    /**
+     * @var Activity[]
+     */
+    private $activities;
+
+    public function __construct(array $activities)
+    {
+        $this->activities = $activities;
+    }
+
+    public static function fromProfileJson(array $raw): self
+    {
+        $activities = [];
+
+        foreach($raw as $data) {
+            array_push($activities, new Activity(
+                DateTime::createFromFormat('d-M-Y H:i', $data['date']),
+                $data['text'],
+                $data['details']
+            ));
+        }
+
+        return new static($activities);
+    }
+
+    public function getActivities(): array
+    {
+        return $this->activities;
+    }
+}
