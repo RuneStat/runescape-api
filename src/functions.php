@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace RuneStat;
 
 if (! function_exists('\RuneStat\validate_rsn')) {
