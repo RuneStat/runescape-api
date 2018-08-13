@@ -22,7 +22,9 @@
     "require-dev": {
         "phpstan/phpstan": "^0.10.2",
         "phpstan/phpstan-phpunit": "^0.10.0",
-        "phpunit/phpunit": "^7.3"
+        "phpunit/phpunit": "^7.3",
+        "slevomat/coding-standard": "^4.6",
+        "squizlabs/php_codesniffer": "^3.3"
     },
     "autoload": {
         "psr-4": {
@@ -37,7 +39,9 @@
     },
     "scripts": {
         "test": "./vendor/bin/phpunit",
-        "phpstan": "./vendor/bin/phpstan analyse -c phpstan.neon -l 1 src/ tests/"
+        "phpstan": "./vendor/bin/phpstan analyse -c phpstan.neon -l 1 src/ tests/",
+        "lint": "vendor/bin/phpcs --standard=phpcs.xml -p",
+        "lint:fix": "vendor/bin/phpcbf --standard=phpcs.xml -p"
     },
     "config": {
         "preferred-install": "dist",
