@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Tests\RS3\API;
+namespace Tests;
 
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
-use RuneStat\RS3\API\Client;
+use RuneStat\Client;
 
 class ClientTest extends TestCase
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace RuneStat\RS3\API;
+namespace RuneStat;
 
 use GuzzleHttp\Client as Guzzle;
 use GuzzleHttp\Psr7\Request;
