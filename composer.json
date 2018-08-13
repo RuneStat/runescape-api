@@ -30,7 +30,10 @@
         "psr-4": {
             "RuneStat\\": "src"
         },
-        "files": ["src/RS3/functions.php"]
+        "files": [
+            "src/functions.php",
+            "src/RS3/functions.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
