@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Test\RS3\Stats;
+namespace Tests\RS3\Stats;
 
 use PHPStan\Testing\TestCase;
 use RuneStat\RS3\Skills\Attack;

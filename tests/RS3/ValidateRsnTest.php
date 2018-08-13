@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Test\RS3;
+namespace Tests\RS3;
 
 use PHPStan\Testing\TestCase;
 use function RuneStat\RS3\validate_rsn;
