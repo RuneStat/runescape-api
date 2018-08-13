@@ -28,7 +28,7 @@ class RepositoryTest extends TestCase
     /** @test */
     public function it_should_instantiate_from_the_profile_json(): void
     {
-        $json = file_get_contents('./activities.json');
+        $json = file_get_contents(__DIR__ . '/activities.json');
 
         $repository = Repository::fromProfileJson(
             json_decode($json, true)

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Test\RS3\Stats;
+namespace Tests\RS3\Stats;
 
 use PHPStan\Testing\TestCase;
 use RuneStat\RS3\Skills\Agility;
@@ -113,7 +113,7 @@ class RepositoryTest extends TestCase
     /** @test */
     public function it_should_instantiate_from_the_profile_json(): void
     {
-        $json = file_get_contents('./stats.json');
+        $json = file_get_contents(__DIR__ . '/stats.json');
 
         $repository = Repository::fromProfileJson(
             json_decode($json, true)
