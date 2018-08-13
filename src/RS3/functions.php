@@ -41,14 +41,6 @@ if (! function_exists('\RuneStat\RS3\skill_from_id')) {
     }
 }
 
-if (! function_exists('\RuneStat\RS3\validate_rsn')) {
-    function validate_rsn(string $rsn): bool
-    {
-        return (bool) preg_match('/^[a-z0-9\-_]{1,12}$/i', $rsn);
-    }
-}
-
-
 if (! function_exists('\RuneStat\RS3\combat_level')) {
     function combat_level(
         Stat $attack,

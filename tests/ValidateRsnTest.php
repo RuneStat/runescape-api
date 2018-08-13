@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Tests\RS3;
+namespace Tests;
 
 use PHPStan\Testing\TestCase;
-use function RuneStat\RS3\validate_rsn;
+use function RuneStat\validate_rsn;
 
 class ValidateRsnTest extends TestCase
 {
