@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests;
 
 use PHPUnit\Framework\TestCase;
@@ -8,25 +10,25 @@ use function RuneStat\goal_progress;
 class GoalProgressTest extends TestCase
 {
     /** @test */
-    public function it_calculates_a_basic_goal()
+    public function it_calculates_a_basic_goal(): void
     {
         $this->assertSame(10.0, goal_progress(0, 100, 10));
     }
 
     /** @test */
-    public function it_calculates_a_goal_from_level_one_to_level_ninety_nine()
+    public function it_calculates_a_goal_from_level_one_to_level_ninety_nine(): void
     {
         $this->assertSame(50.00028386358284, goal_progress(1, 13034431, 6517253));
     }
 
     /** @test */
-    public function it_calculates_a_goal_from_level_ninety_nine_to_one_hundred_and_twenty()
+    public function it_calculates_a_goal_from_level_ninety_nine_to_one_hundred_and_twenty(): void
     {
         $this->assertSame(42.85727719857934, goal_progress(13034431, 104273167, 52136869));
     }
 
     /** @test */
-    public function it_calculates_a_goal_from_level_one_hundred_and_twenty_to_max_xp()
+    public function it_calculates_a_goal_from_level_one_hundred_and_twenty_to_max_xp(): void
     {
         $this->assertSame(62.678350593714924, goal_progress(104273167, 200000000, 164273167));
     }
