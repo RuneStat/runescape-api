@@ -1,0 +1,53 @@
+version: 2
+
+jobs:
+  test:
+    working_directory: /home/circleci/runescape-api
+
+    docker:
+      - image: laratools/ci:7.2
+
+    steps:
+
+      - checkout
+
+      - run:
+          name: Create Report Directories
+          command: |
+            mkdir -p ./reports/phpcs
+            mkdir -p ./reports/phpunit
+
+      - restore_cache:
+          keys:
+            - composer-dependencies-{{ checksum "composer.lock" }}
+
+      - run:
+          name: Install Composer Dependencies
+          command: composer install
+
+      - save_cache:
+          key: composer-dependencies-{{ checksum "composer.lock' }}
+          paths:
+            - vendor
+
+      - run:
+          name: PHP Code Sniffer
+          command: composer lint -- --report=junit --report-file=./reports/phpcs/junit.xml
+
+      - run:
+          name: PHP Static Analysis
+          command: composer phpstan
+
+      - run:
+          name: PHP Unit Tests
+          command: composer test -- --log-junit ./reports/phpunit/junit.xml
+
+      - store_test_results:
+          path: reports
+
+workflows:
+  version: 2
+
+  test:
+    jobs:
+      - test
