@@ -6,12 +6,12 @@ namespace Tests;
 
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
-use RuneStat\Client;
+use RuneStat\HttpClient;
 
-class ClientTest extends TestCase
+class HttpClientTest extends TestCase
 {
     /**
-     * @var Client
+     * @var HttpClient
      */
     protected $client;
 
@@ -19,7 +19,7 @@ class ClientTest extends TestCase
     {
         parent::setUp();
 
-        $this->client = new Client();
+        $this->client = new HttpClient();
     }
 
     public function tearDown(): void

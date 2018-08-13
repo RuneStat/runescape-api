@@ -8,13 +8,13 @@ use Exception;
 use GuzzleHttp\Exception\RequestException;
 use RuneStat\Exceptions\PlayerNotFound;
 use RuneStat\RS3\Activities\Repository as Activities;
-use RuneStat\RS3\API\Client;
+use RuneStat\HttpClient;
 use RuneStat\RS3\Stats\Repository as Stats;
 
 class API
 {
     /**
-     * @var Client
+     * @var HttpClient
      */
     protected $client;
 
@@ -27,7 +27,7 @@ class API
 
     public function __construct()
     {
-        $this->client = new Client();
+        $this->client = new HttpClient();
     }
 
     /**
