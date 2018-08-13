@@ -48,6 +48,16 @@ class Repository
     }
 
     /**
+     * Get all skills for RS3
+     *
+     * @return Skill[]
+     */
+    public function getSkills(): array
+    {
+        return $this->skills;
+    }
+
+    /**
      * Find a skill by its ID
      *
      * @param int $id
