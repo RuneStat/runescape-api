@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\RS3;
 
 use PHPUnit\Framework\TestCase;
@@ -17,7 +19,7 @@ use RuneStat\RS3\Stats\Stat;
 class CombatLevelTest extends TestCase
 {
     /** @test */
-    public function it_calculates_the_minimum_combat_level()
+    public function it_calculates_the_minimum_combat_level(): void
     {
         $combat = combat_level(
             new Stat(new Attack(), 1, 1, 1, 1),
@@ -34,7 +36,7 @@ class CombatLevelTest extends TestCase
     }
 
     /** @test */
-    public function it_calculates_the_maximum_combat_level()
+    public function it_calculates_the_maximum_combat_level(): void
     {
         $combat = combat_level(
             new Stat(new Attack(), 99, 1, 1, 1),
@@ -51,7 +53,7 @@ class CombatLevelTest extends TestCase
     }
 
     /** @test */
-    public function it_calculates_the_combat_level_with_ninety_nine_attack()
+    public function it_calculates_the_combat_level_with_ninety_nine_attack(): void
     {
         $combat = combat_level(
             new Stat(new Attack(), 99, 99, 1, 1),
@@ -68,11 +70,11 @@ class CombatLevelTest extends TestCase
     }
 
     /** @test */
-    public function it_calculates_the_combat_level_with_ninety_nine_strength()
+    public function it_calculates_the_combat_level_with_ninety_nine_strength(): void
     {
         $combat = combat_level(
             new Stat(new Attack(), 1, 1, 1, 1),
-            new Stat(new Strength(),  99, 99, 1, 1),
+            new Stat(new Strength(), 99, 99, 1, 1),
             new Stat(new Magic(), 1, 1, 1, 1),
             new Stat(new Ranged(), 1, 1, 1, 1),
             new Stat(new Defence(), 1, 1, 1, 1),
@@ -85,7 +87,7 @@ class CombatLevelTest extends TestCase
     }
 
     /** @test */
-    public function it_calculates_the_combat_level_with_ninety_nine_magic()
+    public function it_calculates_the_combat_level_with_ninety_nine_magic(): void
     {
         $combat = combat_level(
             new Stat(new Attack(), 1, 1, 1, 1),
@@ -102,7 +104,7 @@ class CombatLevelTest extends TestCase
     }
 
     /** @test */
-    public function it_calculates_the_combat_level_with_ninety_nine_ranged()
+    public function it_calculates_the_combat_level_with_ninety_nine_ranged(): void
     {
         $combat = combat_level(
             new Stat(new Attack(), 1, 1, 1, 1),
@@ -119,7 +121,7 @@ class CombatLevelTest extends TestCase
     }
 
     /** @test */
-    public function it_calculates_the_combat_level_with_ninety_nine_defence()
+    public function it_calculates_the_combat_level_with_ninety_nine_defence(): void
     {
         $combat = combat_level(
             new Stat(new Attack(), 1, 1, 1, 1),
@@ -136,7 +138,7 @@ class CombatLevelTest extends TestCase
     }
 
     /** @test */
-    public function it_calculates_the_combat_level_with_ninety_nine_constitution()
+    public function it_calculates_the_combat_level_with_ninety_nine_constitution(): void
     {
         $combat = combat_level(
             new Stat(new Attack(), 1, 1, 1, 1),
@@ -153,7 +155,7 @@ class CombatLevelTest extends TestCase
     }
 
     /** @test */
-    public function it_calculates_the_combat_level_with_ninety_nine_prayer()
+    public function it_calculates_the_combat_level_with_ninety_nine_prayer(): void
     {
         $combat = combat_level(
             new Stat(new Attack(), 1, 1, 1, 1),
@@ -170,7 +172,7 @@ class CombatLevelTest extends TestCase
     }
 
     /** @test */
-    public function it_calculates_the_combat_level_with_ninety_nine_summoning()
+    public function it_calculates_the_combat_level_with_ninety_nine_summoning(): void
     {
         $combat = combat_level(
             new Stat(new Attack(), 1, 1, 1, 1),

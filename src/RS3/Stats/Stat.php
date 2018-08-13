@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace RuneStat\RS3\Stats;
 
 use RuneStat\RS3\Skill;

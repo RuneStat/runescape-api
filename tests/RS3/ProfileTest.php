@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\RS3;
 
 use PHPUnit\Framework\TestCase;
@@ -71,7 +73,7 @@ class ProfileTest extends TestCase
     }
 
     /** @test */
-    public function it_should_instantiate()
+    public function it_should_instantiate(): void
     {
         $profile = new Profile(
             $this->makeStats(),
@@ -82,7 +84,7 @@ class ProfileTest extends TestCase
     }
 
     /** @test */
-    public function it_should_return_the_profile_stats()
+    public function it_should_return_the_profile_stats(): void
     {
         $profile = new Profile(
             $this->makeStats(),
@@ -93,7 +95,7 @@ class ProfileTest extends TestCase
     }
 
     /** @test */
-    public function it_should_return_the_profile_activities()
+    public function it_should_return_the_profile_activities(): void
     {
         $profile = new Profile(
             $this->makeStats(),

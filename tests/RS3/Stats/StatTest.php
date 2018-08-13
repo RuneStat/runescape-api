@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Test\RS3\Stats;
 
 use PHPStan\Testing\TestCase;
@@ -9,7 +11,7 @@ use RuneStat\RS3\Stats\Stat;
 class StatTest extends TestCase
 {
     /** @test */
-    public function it_should_return_the_stats_skill()
+    public function it_should_return_the_stats_skill(): void
     {
         $stat = new Stat(new Attack(), 1, 1, 1, 1);
 
@@ -17,7 +19,7 @@ class StatTest extends TestCase
     }
 
     /** @test */
-    public function it_should_return_the_stats_level()
+    public function it_should_return_the_stats_level(): void
     {
         $stat = new Stat(new Attack(), 1, 1, 1, 1);
 
@@ -25,7 +27,7 @@ class StatTest extends TestCase
     }
 
     /** @test */
-    public function it_should_return_the_stats_virtual_level()
+    public function it_should_return_the_stats_virtual_level(): void
     {
         $stat = new Stat(new Attack(), 1, 1, 1, 1);
 
@@ -33,7 +35,7 @@ class StatTest extends TestCase
     }
 
     /** @test */
-    public function it_should_return_the_stats_rank()
+    public function it_should_return_the_stats_rank(): void
     {
         $stat = new Stat(new Attack(), 1, 1, 1, 1);
 
@@ -41,7 +43,7 @@ class StatTest extends TestCase
     }
 
     /** @test */
-    public function it_should_return_the_stats_experience()
+    public function it_should_return_the_stats_experience(): void
     {
         $stat = new Stat(new Attack(), 1, 1, 1, 1);
 

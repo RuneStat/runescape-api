@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace RuneStat\RS3;
 
 use RuneStat\RS3\Skills\Repository as SkillRepository;
 use RuneStat\RS3\Stats\Stat;
+use function RuneStat\RS3\xp_to_level;
 
-if ( ! function_exists('\RuneStat\RS3\xp_to_level'))
-{
+if (! function_exists('\RuneStat\RS3\xp_to_level')) {
     function xp_to_level(Skill $skill, int $xp, bool $virtual = false): int
     {
         $modifier = 0;
@@ -23,16 +25,14 @@ if ( ! function_exists('\RuneStat\RS3\xp_to_level'))
     }
 }
 
-if ( ! function_exists('\RuneStat\RS3\xp_to_virtual_level'))
-{
+if (! function_exists('\RuneStat\RS3\xp_to_virtual_level')) {
     function xp_to_virtual_level(Skill $skill, int $xp): int
     {
-        return \RuneStat\RS3\xp_to_level($skill, $xp, true);
+        return xp_to_level($skill, $xp, true);
     }
 }
 
-if ( ! function_exists('\RuneStat\RS3\skill_from_id'))
-{
+if (! function_exists('\RuneStat\RS3\skill_from_id')) {
     function skill_from_id(int $id): ?Skill
     {
         $repository = new SkillRepository();
@@ -41,8 +41,7 @@ if ( ! function_exists('\RuneStat\RS3\skill_from_id'))
     }
 }
 
-if ( ! function_exists('\RuneStat\RS3\validate_rsn'))
-{
+if (! function_exists('\RuneStat\RS3\validate_rsn')) {
     function validate_rsn(string $rsn): bool
     {
         return (bool) preg_match('/^[a-z0-9\-_]{1,12}$/i', $rsn);
@@ -50,8 +49,7 @@ if ( ! function_exists('\RuneStat\RS3\validate_rsn'))
 }
 
 
-if ( ! function_exists('\RuneStat\RS3\combat_level'))
-{
+if (! function_exists('\RuneStat\RS3\combat_level')) {
     function combat_level(
         Stat $attack,
         Stat $strength,
@@ -68,8 +66,12 @@ if ( ! function_exists('\RuneStat\RS3\combat_level'))
             2 * $ranged->getLevel()
         );
 
-        $rest = $defence->getLevel() + $constitution->getLevel() + floor(0.5 * $prayer->getLevel()) + floor(0.5 * $summoning->getLevel());
+        $rest = (
+            $defence->getLevel() +
+            $constitution->getLevel() +
+            floor(0.5 * $prayer->getLevel()) + floor(0.5 * $summoning->getLevel())
+        );
 
-        return floor(0.25 * ((1.3 * $highest) + $rest));
+        return (int) floor(0.25 * ((1.3 * $highest) + $rest));
     }
 }

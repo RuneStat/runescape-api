@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace RuneStat\RS3\API;
 
 use Exception;
@@ -16,6 +18,9 @@ class API
      */
     protected $client;
 
+    /**
+     * @var string[]
+     */
     private $endpoints = [
         'profile' => 'https://apps.runescape.com/runemetrics/profile/profile?user=%s&activities=20',
     ];
@@ -25,7 +30,13 @@ class API
         $this->client = new Client();
     }
 
-    protected function getEndpoint(string $endpoint, ...$params)
+    /**
+     * @param string $endpoint
+     * @param mixed  ...$params
+     * @return string
+     * @throws Exception
+     */
+    protected function getEndpoint(string $endpoint, ...$params): string
     {
         if (! array_key_exists($endpoint, $this->endpoints)) {
             throw new Exception(
@@ -36,11 +47,6 @@ class API
         return sprintf($this->endpoints[$endpoint], ...$params);
     }
 
-    /**
-     * @param string $rsn
-     * @return Profile
-     * @throws PlayerNotFound
-     */
     public function getProfile(string $rsn): Profile
     {
         try {

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\RS3\Skills;
 
 use PHPUnit\Framework\TestCase;
@@ -16,14 +18,14 @@ class RepositoryTest extends TestCase
      */
     protected $repository;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
         $this->repository = new Repository();
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         $this->repository = null;
 
@@ -31,7 +33,7 @@ class RepositoryTest extends TestCase
     }
 
     /** @test */
-    public function it_finds_a_skill_by_its_id()
+    public function it_finds_a_skill_by_its_id(): void
     {
         $this->assertInstanceOf(Fishing::class, $this->repository->findById(
             (new Fishing())->getId()
@@ -39,7 +41,7 @@ class RepositoryTest extends TestCase
     }
 
     /** @test */
-    public function it_finds_a_skill_by_its_name()
+    public function it_finds_a_skill_by_its_name(): void
     {
         $this->assertInstanceOf(Farming::class, $this->repository->findByName(
             (new Farming())->getName()
@@ -47,7 +49,7 @@ class RepositoryTest extends TestCase
     }
 
     /** @test */
-    public function it_finds_a_skill_by_its_class()
+    public function it_finds_a_skill_by_its_class(): void
     {
         $this->assertInstanceOf(Mining::class, $this->repository->findByClass(
             Mining::class
@@ -55,7 +57,7 @@ class RepositoryTest extends TestCase
     }
 
     /** @test */
-    public function it_finds_a_skill_by_a_skill_instance()
+    public function it_finds_a_skill_by_a_skill_instance(): void
     {
         $this->assertInstanceOf(Smithing::class, $this->repository->findByClass(
             new Smithing()

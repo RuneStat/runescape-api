@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace RuneStat\RS3\Skills;
 
 use RuneStat\RS3\Skill;
@@ -53,7 +55,7 @@ class Repository
      */
     public function findById(int $id): ?Skill
     {
-        foreach($this->skills as $skill) {
+        foreach ($this->skills as $skill) {
             if ($id === $skill->getId()) {
                 return $skill;
             }
@@ -72,7 +74,7 @@ class Repository
     {
         $name = mb_strtolower($name);
 
-        foreach($this->skills as $skill) {
+        foreach ($this->skills as $skill) {
             if (mb_strtolower($skill->getName()) === $name) {
                 return $skill;
             }

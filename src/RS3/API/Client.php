@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace RuneStat\RS3\API;
 
 use GuzzleHttp\Client as Guzzle;
@@ -43,10 +45,6 @@ class Client
         return $this->send($this->request('GET', $uri, $headers));
     }
 
-    /**
-     * @param RequestInterface $request
-     * @return ResponseInterface
-     */
     public function send(RequestInterface $request): ResponseInterface
     {
         return $this->guzzle->send($request, []);

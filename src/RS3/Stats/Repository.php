@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace RuneStat\RS3\Stats;
 
 use RuneStat\RS3\Skill;
@@ -82,7 +84,7 @@ class Repository
     {
         $stats = [];
 
-        foreach($raw as $data) {
+        foreach ($raw as $data) {
             // For some reason the runemetrics API starts at 0 index and the other endpoints don't 🤷
             $skill = skill_from_id($data['id'] + 1);
 
@@ -95,16 +97,16 @@ class Repository
             ));
         }
 
-        usort($stats, function(Stat $a, Stat $b) {
+        usort($stats, function (Stat $a, Stat $b) {
             return $a->getSkill()->getId() <=> $b->getSkill()->getId();
         });
 
         return new static(...$stats);
     }
 
-    protected function validate()
+    protected function validate(): void
     {
-        foreach($this->stats as $name => $stat) {
+        foreach ($this->stats as $name => $stat) {
             if ($name !== $stat->getSkill()->getName()) {
                 throw new RuntimeException(
                     sprintf(
@@ -119,7 +121,7 @@ class Repository
 
     public function findById(int $id): ?Stat
     {
-        foreach($this->stats as $stat) {
+        foreach ($this->stats as $stat) {
             if ($id === $stat->getSkill()->getId()) {
                 return $stat;
             }
@@ -132,7 +134,7 @@ class Repository
     {
         $name = mb_strtolower($name);
 
-        foreach($this->stats as $stat) {
+        foreach ($this->stats as $stat) {
             if (mb_strtolower($stat->getSkill()->getName()) === $name) {
                 return $stat;
             }

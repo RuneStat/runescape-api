@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\RS3\API;
 
 use PHPUnit\Framework\TestCase;
@@ -13,14 +15,14 @@ class ClientTest extends TestCase
      */
     protected $client;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
         $this->client = new Client();
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         $this->client = null;
 
@@ -28,13 +30,13 @@ class ClientTest extends TestCase
     }
 
     /** @test */
-    public function it_should_create_a_psr7_request()
+    public function it_should_create_a_psr7_request(): void
     {
         $this->assertInstanceOf(RequestInterface::class, $this->client->request('GET', '/'));
     }
 
     /** @test */
-    public function it_should_set_the_user_agent_header()
+    public function it_should_set_the_user_agent_header(): void
     {
         $request = $this->client->request('GET', '/');
 

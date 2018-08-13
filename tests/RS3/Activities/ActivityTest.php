@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\RS3\Activities;
 
 use DateTime;
@@ -9,7 +11,7 @@ use RuneStat\RS3\Activities\Activity;
 class ActivityTest extends TestCase
 {
     /** @test */
-    public function it_should_instantiate()
+    public function it_should_instantiate(): void
     {
         $activity = new Activity(
             new DateTime(),
@@ -21,7 +23,7 @@ class ActivityTest extends TestCase
     }
 
     /** @test */
-    public function it_should_return_the_date()
+    public function it_should_return_the_date(): void
     {
         $activity = new Activity(
             new DateTime(),
@@ -33,7 +35,7 @@ class ActivityTest extends TestCase
     }
 
     /** @test */
-    public function it_should_return_the_text()
+    public function it_should_return_the_text(): void
     {
         $activity = new Activity(
             new DateTime(),
@@ -48,7 +50,7 @@ class ActivityTest extends TestCase
     }
 
     /** @test */
-    public function it_should_return_the_details()
+    public function it_should_return_the_details(): void
     {
         $activity = new Activity(
             new DateTime(),

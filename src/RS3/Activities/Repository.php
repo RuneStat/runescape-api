@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace RuneStat\RS3\Activities;
 
 use DateTime;
@@ -20,7 +22,7 @@ class Repository
     {
         $activities = [];
 
-        foreach($raw as $data) {
+        foreach ($raw as $data) {
             array_push($activities, new Activity(
                 DateTime::createFromFormat('d-M-Y H:i', $data['date']),
                 $data['text'],
