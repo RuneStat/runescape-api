@@ -6,7 +6,6 @@ namespace RuneStat\RS3;
 
 use RuneStat\RS3\Skills\Repository as SkillRepository;
 use RuneStat\RS3\Stats\Stat;
-use function RuneStat\RS3\xp_to_level;
 
 if (! function_exists('\RuneStat\RS3\xp_to_level')) {
     function xp_to_level(Skill $skill, int $xp, bool $virtual = false): int
