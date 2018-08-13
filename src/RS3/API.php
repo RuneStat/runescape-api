@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace RuneStat\RS3\API;
+namespace RuneStat\RS3;
 
 use Exception;
 use GuzzleHttp\Exception\RequestException;
 use RuneStat\Exceptions\PlayerNotFound;
 use RuneStat\RS3\Activities\Repository as Activities;
-use RuneStat\RS3\Profile;
+use RuneStat\RS3\API\Client;
 use RuneStat\RS3\Stats\Repository as Stats;
 
 class API
