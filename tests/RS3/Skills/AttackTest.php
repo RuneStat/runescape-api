@@ -68,7 +68,7 @@ class AttackTest extends TestCase
     /** @test */
     public function it_should_return_if_its_a_combat_skill(): void
     {
-        $this->assertFalse($this->skill->isCombat());
+        $this->assertTrue($this->skill->isCombat());
     }
 
     /** @test */

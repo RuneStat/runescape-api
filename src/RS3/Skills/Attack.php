@@ -36,7 +36,7 @@ final class Attack extends Skill
     /**
      * {@inheritdoc}
      */
-    protected $isCombat = false;
+    protected $isCombat = true;
 
     /**
      * {@inheritdoc}
