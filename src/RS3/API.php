@@ -66,6 +66,12 @@ class API
         $stats = Stats::fromProfileJson($json['skillvalues']);
         $activities = Activities::fromProfileJson($json['activities']);
 
-        return new Profile($stats, $activities);
+        return new Profile(
+            $stats,
+            $activities,
+            $json['totalxp'],
+            $json['totalskill'],
+            (int) preg_replace('/[^0-9]/', '', $json['rank'])
+        );
     }
 }

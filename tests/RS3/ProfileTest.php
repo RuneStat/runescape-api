@@ -77,7 +77,10 @@ class ProfileTest extends TestCase
     {
         $profile = new Profile(
             $this->makeStats(),
-            new Activities([])
+            new Activities([]),
+            27,
+            27,
+            1
         );
 
         $this->assertInstanceOf(Profile::class, $profile);
@@ -88,7 +91,10 @@ class ProfileTest extends TestCase
     {
         $profile = new Profile(
             $this->makeStats(),
-            new Activities([])
+            new Activities([]),
+            27,
+            27,
+            1
         );
 
         $this->assertInstanceOf(Stats::class, $profile->getStats());
@@ -99,9 +105,96 @@ class ProfileTest extends TestCase
     {
         $profile = new Profile(
             $this->makeStats(),
-            new Activities([])
+            new Activities([]),
+            27,
+            27,
+            1
         );
 
         $this->assertInstanceOf(Activities::class, $profile->getActivities());
+    }
+
+    /** @test */
+    public function it_should_return_the_total_xp(): void
+    {
+        $profile = new Profile(
+            $this->makeStats(),
+            new Activities([]),
+            27,
+            27,
+            1
+        );
+
+        $this->assertSame(27, $profile->getTotalXp());
+    }
+
+    /** @test */
+    public function it_should_return_the_total_level(): void
+    {
+        $profile = new Profile(
+            $this->makeStats(),
+            new Activities([]),
+            27,
+            27,
+            1
+        );
+
+        $this->assertSame(27, $profile->getTotalLevel());
+    }
+
+    /** @test */
+    public function it_should_return_the_rank(): void
+    {
+        $profile = new Profile(
+            $this->makeStats(),
+            new Activities([]),
+            27,
+            27,
+            27081
+        );
+
+        $this->assertSame(27081, $profile->getRank());
+    }
+
+    /** @test */
+    public function it_should_calculate_the_total_virtual_level(): void
+    {
+        $profile = new Profile(
+            new Stats(
+                new Stat(new Attack(), 99, 120, 1, 1),
+                new Stat(new Defence(), 99, 120, 1, 1),
+                new Stat(new Strength(), 99, 120, 1, 1),
+                new Stat(new Constitution(), 99, 120, 1, 1),
+                new Stat(new Ranged(), 99, 120, 1, 1),
+                new Stat(new Prayer(), 99, 120, 1, 1),
+                new Stat(new Magic(), 99, 120, 1, 1),
+                new Stat(new Cooking(), 99, 120, 1, 1),
+                new Stat(new Woodcutting(), 99, 120, 1, 1),
+                new Stat(new Fletching(), 99, 120, 1, 1),
+                new Stat(new Fishing(), 99, 120, 1, 1),
+                new Stat(new Firemaking(), 99, 120, 1, 1),
+                new Stat(new Crafting(), 99, 120, 1, 1),
+                new Stat(new Smithing(), 99, 120, 1, 1),
+                new Stat(new Mining(), 99, 120, 1, 1),
+                new Stat(new Herblore(), 99, 120, 1, 1),
+                new Stat(new Agility(), 99, 120, 1, 1),
+                new Stat(new Thieving(), 99, 120, 1, 1),
+                new Stat(new Slayer(), 120, 120, 1, 1),
+                new Stat(new Farming(), 99, 120, 1, 1),
+                new Stat(new Runecrafting(), 99, 120, 1, 1),
+                new Stat(new Hunter(), 99, 120, 1, 1),
+                new Stat(new Construction(), 99, 120, 1, 1),
+                new Stat(new Summoning(), 99, 120, 1, 1),
+                new Stat(new Dungeoneering(), 120, 120, 1, 1),
+                new Stat(new Divination(), 99, 120, 1, 1),
+                new Stat(new Invention(), 120, 150, 1, 1)
+            ),
+            new Activities([]),
+            601991332,
+            2736,
+            1
+        );
+
+        $this->assertSame(3270, $profile->getTotalVirtualLevel());
     }
 }
