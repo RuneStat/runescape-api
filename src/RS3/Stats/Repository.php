@@ -121,6 +121,11 @@ class Repository implements IteratorAggregate
         }
     }
 
+    public function all(): array
+    {
+        return array_values($this->stats);
+    }
+
     public function findById(int $id): ?Stat
     {
         foreach ($this->stats as $stat) {

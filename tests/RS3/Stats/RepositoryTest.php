@@ -159,6 +159,12 @@ class RepositoryTest extends TestCase
     }
 
     /** @test */
+    public function it_should_return_all_stats(): void
+    {
+        $this->assertCount(27, $this->repository->all());
+    }
+
+    /** @test */
     public function it_should_find_a_stat_by_the_skill_id(): void
     {
         $stat = $this->repository->findById(
