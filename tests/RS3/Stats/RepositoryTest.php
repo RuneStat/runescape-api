@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\RS3\Stats;
 
+use IteratorAggregate;
 use PHPStan\Testing\TestCase;
 use RuneStat\RS3\Skills\Agility;
 use RuneStat\RS3\Skills\Attack;
@@ -72,6 +73,42 @@ class RepositoryTest extends TestCase
         );
 
         $this->assertInstanceOf(Repository::class, $repository);
+    }
+
+    /** @test */
+    public function it_implements_iterator_aggregate(): void
+    {
+        $repository = new Repository(
+            new Stat(new Attack(), 1, 1, 1, 1),
+            new Stat(new Defence(), 1, 1, 1, 1),
+            new Stat(new Strength(), 1, 1, 1, 1),
+            new Stat(new Constitution(), 1, 1, 1, 1),
+            new Stat(new Ranged(), 1, 1, 1, 1),
+            new Stat(new Prayer(), 1, 1, 1, 1),
+            new Stat(new Magic(), 1, 1, 1, 1),
+            new Stat(new Cooking(), 1, 1, 1, 1),
+            new Stat(new Woodcutting(), 1, 1, 1, 1),
+            new Stat(new Fletching(), 1, 1, 1, 1),
+            new Stat(new Fishing(), 1, 1, 1, 1),
+            new Stat(new Firemaking(), 1, 1, 1, 1),
+            new Stat(new Crafting(), 1, 1, 1, 1),
+            new Stat(new Smithing(), 1, 1, 1, 1),
+            new Stat(new Mining(), 1, 1, 1, 1),
+            new Stat(new Herblore(), 1, 1, 1, 1),
+            new Stat(new Agility(), 1, 1, 1, 1),
+            new Stat(new Thieving(), 1, 1, 1, 1),
+            new Stat(new Slayer(), 1, 1, 1, 1),
+            new Stat(new Farming(), 1, 1, 1, 1),
+            new Stat(new Runecrafting(), 1, 1, 1, 1),
+            new Stat(new Hunter(), 1, 1, 1, 1),
+            new Stat(new Construction(), 1, 1, 1, 1),
+            new Stat(new Summoning(), 1, 1, 1, 1),
+            new Stat(new Dungeoneering(), 1, 1, 1, 1),
+            new Stat(new Divination(), 1, 1, 1, 1),
+            new Stat(new Invention(), 1, 1, 1, 1)
+        );
+
+        $this->assertInstanceOf(IteratorAggregate::class, $repository);
     }
 
     /** @test */

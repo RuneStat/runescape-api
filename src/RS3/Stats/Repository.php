@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace RuneStat\RS3\Stats;
 
+use ArrayIterator;
+use IteratorAggregate;
 use RuneStat\RS3\Skill;
 use function RuneStat\RS3\xp_to_virtual_level;
 use function RuneStat\RS3\skill_from_id;
 use RuntimeException;
 
-class Repository
+class Repository implements IteratorAggregate
 {
     /**
      * Array of Stats keyed by the skill name
@@ -152,5 +154,12 @@ class Repository
         $needle = $needle instanceof Skill ? $needle : new $needle;
 
         return $this->findById($needle->getId());
+    }
+
+    public function getIterator(): ArrayIterator
+    {
+        return new ArrayIterator(
+            array_values($this->stats)
+        );
     }
 }
