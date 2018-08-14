@@ -39,10 +39,16 @@ use RuntimeException;
 
 class RepositoryTest extends TestCase
 {
-    /** @test */
-    public function it_should_instantiate(): void
+    /**
+     * @var Repository
+     */
+    protected $repository;
+
+    public function setUp(): void
     {
-        $repository = new Repository(
+        parent::setUp();
+
+        $this->repository = new Repository(
             new Stat(new Attack(), 1, 1, 1, 1),
             new Stat(new Defence(), 1, 1, 1, 1),
             new Stat(new Strength(), 1, 1, 1, 1),
@@ -71,44 +77,25 @@ class RepositoryTest extends TestCase
             new Stat(new Divination(), 1, 1, 1, 1),
             new Stat(new Invention(), 1, 1, 1, 1)
         );
+    }
 
-        $this->assertInstanceOf(Repository::class, $repository);
+    public function tearDown(): void
+    {
+        $this->repository = null;
+
+        parent::tearDown();
+    }
+
+    /** @test */
+    public function it_should_instantiate(): void
+    {
+        $this->assertInstanceOf(Repository::class, $this->repository);
     }
 
     /** @test */
     public function it_implements_iterator_aggregate(): void
     {
-        $repository = new Repository(
-            new Stat(new Attack(), 1, 1, 1, 1),
-            new Stat(new Defence(), 1, 1, 1, 1),
-            new Stat(new Strength(), 1, 1, 1, 1),
-            new Stat(new Constitution(), 1, 1, 1, 1),
-            new Stat(new Ranged(), 1, 1, 1, 1),
-            new Stat(new Prayer(), 1, 1, 1, 1),
-            new Stat(new Magic(), 1, 1, 1, 1),
-            new Stat(new Cooking(), 1, 1, 1, 1),
-            new Stat(new Woodcutting(), 1, 1, 1, 1),
-            new Stat(new Fletching(), 1, 1, 1, 1),
-            new Stat(new Fishing(), 1, 1, 1, 1),
-            new Stat(new Firemaking(), 1, 1, 1, 1),
-            new Stat(new Crafting(), 1, 1, 1, 1),
-            new Stat(new Smithing(), 1, 1, 1, 1),
-            new Stat(new Mining(), 1, 1, 1, 1),
-            new Stat(new Herblore(), 1, 1, 1, 1),
-            new Stat(new Agility(), 1, 1, 1, 1),
-            new Stat(new Thieving(), 1, 1, 1, 1),
-            new Stat(new Slayer(), 1, 1, 1, 1),
-            new Stat(new Farming(), 1, 1, 1, 1),
-            new Stat(new Runecrafting(), 1, 1, 1, 1),
-            new Stat(new Hunter(), 1, 1, 1, 1),
-            new Stat(new Construction(), 1, 1, 1, 1),
-            new Stat(new Summoning(), 1, 1, 1, 1),
-            new Stat(new Dungeoneering(), 1, 1, 1, 1),
-            new Stat(new Divination(), 1, 1, 1, 1),
-            new Stat(new Invention(), 1, 1, 1, 1)
-        );
-
-        $this->assertInstanceOf(IteratorAggregate::class, $repository);
+        $this->assertInstanceOf(IteratorAggregate::class, $this->repository);
     }
 
     /** @test */
@@ -174,37 +161,7 @@ class RepositoryTest extends TestCase
     /** @test */
     public function it_should_find_a_stat_by_the_skill_id(): void
     {
-        $repository = new Repository(
-            new Stat(new Attack(), 1, 1, 1, 1),
-            new Stat(new Defence(), 1, 1, 1, 1),
-            new Stat(new Strength(), 1, 1, 1, 1),
-            new Stat(new Constitution(), 1, 1, 1, 1),
-            new Stat(new Ranged(), 1, 1, 1, 1),
-            new Stat(new Prayer(), 1, 1, 1, 1),
-            new Stat(new Magic(), 1, 1, 1, 1),
-            new Stat(new Cooking(), 1, 1, 1, 1),
-            new Stat(new Woodcutting(), 1, 1, 1, 1),
-            new Stat(new Fletching(), 1, 1, 1, 1),
-            new Stat(new Fishing(), 1, 1, 1, 1),
-            new Stat(new Firemaking(), 1, 1, 1, 1),
-            new Stat(new Crafting(), 1, 1, 1, 1),
-            new Stat(new Smithing(), 1, 1, 1, 1),
-            new Stat(new Mining(), 1, 1, 1, 1),
-            new Stat(new Herblore(), 1, 1, 1, 1),
-            new Stat(new Agility(), 1, 1, 1, 1),
-            new Stat(new Thieving(), 1, 1, 1, 1),
-            new Stat(new Slayer(), 1, 1, 1, 1),
-            new Stat(new Farming(), 1, 1, 1, 1),
-            new Stat(new Runecrafting(), 1, 1, 1, 1),
-            new Stat(new Hunter(), 1, 1, 1, 1),
-            new Stat(new Construction(), 1, 1, 1, 1),
-            new Stat(new Summoning(), 1, 1, 1, 1),
-            new Stat(new Dungeoneering(), 1, 1, 1, 1),
-            new Stat(new Divination(), 1, 1, 1, 1),
-            new Stat(new Invention(), 1, 1, 1, 1)
-        );
-
-        $stat = $repository->findById(
+        $stat = $this->repository->findById(
             (new Runecrafting())->getId()
         );
 
@@ -215,37 +172,7 @@ class RepositoryTest extends TestCase
     /** @test */
     public function it_should_find_a_stat_by_the_skill_name(): void
     {
-        $repository = new Repository(
-            new Stat(new Attack(), 1, 1, 1, 1),
-            new Stat(new Defence(), 1, 1, 1, 1),
-            new Stat(new Strength(), 1, 1, 1, 1),
-            new Stat(new Constitution(), 1, 1, 1, 1),
-            new Stat(new Ranged(), 1, 1, 1, 1),
-            new Stat(new Prayer(), 1, 1, 1, 1),
-            new Stat(new Magic(), 1, 1, 1, 1),
-            new Stat(new Cooking(), 1, 1, 1, 1),
-            new Stat(new Woodcutting(), 1, 1, 1, 1),
-            new Stat(new Fletching(), 1, 1, 1, 1),
-            new Stat(new Fishing(), 1, 1, 1, 1),
-            new Stat(new Firemaking(), 1, 1, 1, 1),
-            new Stat(new Crafting(), 1, 1, 1, 1),
-            new Stat(new Smithing(), 1, 1, 1, 1),
-            new Stat(new Mining(), 1, 1, 1, 1),
-            new Stat(new Herblore(), 1, 1, 1, 1),
-            new Stat(new Agility(), 1, 1, 1, 1),
-            new Stat(new Thieving(), 1, 1, 1, 1),
-            new Stat(new Slayer(), 1, 1, 1, 1),
-            new Stat(new Farming(), 1, 1, 1, 1),
-            new Stat(new Runecrafting(), 1, 1, 1, 1),
-            new Stat(new Hunter(), 1, 1, 1, 1),
-            new Stat(new Construction(), 1, 1, 1, 1),
-            new Stat(new Summoning(), 1, 1, 1, 1),
-            new Stat(new Dungeoneering(), 1, 1, 1, 1),
-            new Stat(new Divination(), 1, 1, 1, 1),
-            new Stat(new Invention(), 1, 1, 1, 1)
-        );
-
-        $stat = $repository->findByName(
+        $stat = $this->repository->findByName(
             (new Summoning())->getName()
         );
 
@@ -256,37 +183,7 @@ class RepositoryTest extends TestCase
     /** @test */
     public function it_should_find_a_stat_by_the_class_namespace(): void
     {
-        $repository = new Repository(
-            new Stat(new Attack(), 1, 1, 1, 1),
-            new Stat(new Defence(), 1, 1, 1, 1),
-            new Stat(new Strength(), 1, 1, 1, 1),
-            new Stat(new Constitution(), 1, 1, 1, 1),
-            new Stat(new Ranged(), 1, 1, 1, 1),
-            new Stat(new Prayer(), 1, 1, 1, 1),
-            new Stat(new Magic(), 1, 1, 1, 1),
-            new Stat(new Cooking(), 1, 1, 1, 1),
-            new Stat(new Woodcutting(), 1, 1, 1, 1),
-            new Stat(new Fletching(), 1, 1, 1, 1),
-            new Stat(new Fishing(), 1, 1, 1, 1),
-            new Stat(new Firemaking(), 1, 1, 1, 1),
-            new Stat(new Crafting(), 1, 1, 1, 1),
-            new Stat(new Smithing(), 1, 1, 1, 1),
-            new Stat(new Mining(), 1, 1, 1, 1),
-            new Stat(new Herblore(), 1, 1, 1, 1),
-            new Stat(new Agility(), 1, 1, 1, 1),
-            new Stat(new Thieving(), 1, 1, 1, 1),
-            new Stat(new Slayer(), 1, 1, 1, 1),
-            new Stat(new Farming(), 1, 1, 1, 1),
-            new Stat(new Runecrafting(), 1, 1, 1, 1),
-            new Stat(new Hunter(), 1, 1, 1, 1),
-            new Stat(new Construction(), 1, 1, 1, 1),
-            new Stat(new Summoning(), 1, 1, 1, 1),
-            new Stat(new Dungeoneering(), 1, 1, 1, 1),
-            new Stat(new Divination(), 1, 1, 1, 1),
-            new Stat(new Invention(), 1, 1, 1, 1)
-        );
-
-        $stat = $repository->findByClass(Dungeoneering::class);
+        $stat = $this->repository->findByClass(Dungeoneering::class);
 
         $this->assertInstanceOf(Stat::class, $stat);
         $this->assertInstanceOf(Dungeoneering::class, $stat->getSkill());
@@ -295,37 +192,7 @@ class RepositoryTest extends TestCase
     /** @test */
     public function it_should_find_a_stat_by_a_skill_instance(): void
     {
-        $repository = new Repository(
-            new Stat(new Attack(), 1, 1, 1, 1),
-            new Stat(new Defence(), 1, 1, 1, 1),
-            new Stat(new Strength(), 1, 1, 1, 1),
-            new Stat(new Constitution(), 1, 1, 1, 1),
-            new Stat(new Ranged(), 1, 1, 1, 1),
-            new Stat(new Prayer(), 1, 1, 1, 1),
-            new Stat(new Magic(), 1, 1, 1, 1),
-            new Stat(new Cooking(), 1, 1, 1, 1),
-            new Stat(new Woodcutting(), 1, 1, 1, 1),
-            new Stat(new Fletching(), 1, 1, 1, 1),
-            new Stat(new Fishing(), 1, 1, 1, 1),
-            new Stat(new Firemaking(), 1, 1, 1, 1),
-            new Stat(new Crafting(), 1, 1, 1, 1),
-            new Stat(new Smithing(), 1, 1, 1, 1),
-            new Stat(new Mining(), 1, 1, 1, 1),
-            new Stat(new Herblore(), 1, 1, 1, 1),
-            new Stat(new Agility(), 1, 1, 1, 1),
-            new Stat(new Thieving(), 1, 1, 1, 1),
-            new Stat(new Slayer(), 1, 1, 1, 1),
-            new Stat(new Farming(), 1, 1, 1, 1),
-            new Stat(new Runecrafting(), 1, 1, 1, 1),
-            new Stat(new Hunter(), 1, 1, 1, 1),
-            new Stat(new Construction(), 1, 1, 1, 1),
-            new Stat(new Summoning(), 1, 1, 1, 1),
-            new Stat(new Dungeoneering(), 1, 1, 1, 1),
-            new Stat(new Divination(), 1, 1, 1, 1),
-            new Stat(new Invention(), 1, 1, 1, 1)
-        );
-
-        $stat = $repository->findByClass(new Divination());
+        $stat = $this->repository->findByClass(new Divination());
 
         $this->assertInstanceOf(Stat::class, $stat);
         $this->assertInstanceOf(Divination::class, $stat->getSkill());
