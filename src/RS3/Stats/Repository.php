@@ -91,9 +91,9 @@ class Repository
             array_push($stats, new Stat(
                 $skill,
                 $data['level'],
-                xp_to_virtual_level($skill, $data['xp']),
+                xp_to_virtual_level($skill, (int) ($data['xp'] / 10)),
                 $data['rank'],
-                $data['xp']
+                (int) ($data['xp'] / 10)
             ));
         }
 

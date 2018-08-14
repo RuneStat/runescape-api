@@ -123,6 +123,18 @@ class RepositoryTest extends TestCase
     }
 
     /** @test */
+    public function it_should_handle_non_decimal_experience_that_the_runemetrics_api_returns(): void
+    {
+        $json = file_get_contents(__DIR__ . '/stats.json');
+
+        $repository = Repository::fromProfileJson(
+            json_decode($json, true)
+        );
+
+        $this->assertSame(99, $repository->findByClass(new Attack())->getLevel());
+    }
+
+    /** @test */
     public function it_should_find_a_stat_by_the_skill_id(): void
     {
         $repository = new Repository(
