@@ -87,6 +87,18 @@ class ProfileTest extends TestCase
     }
 
     /** @test */
+    public function it_should_instantiate_from_the_profile_json(): void
+    {
+        $json = file_get_contents(__DIR__ . '/profile.json');
+
+        $profile = Profile::fromProfileJson(
+            json_decode($json, true)
+        );
+
+        $this->assertInstanceOf(Profile::class, $profile);
+    }
+
+    /** @test */
     public function it_should_return_the_profile_stats(): void
     {
         $profile = new Profile(

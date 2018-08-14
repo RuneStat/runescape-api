@@ -53,6 +53,20 @@ class Profile
         }, 0);
     }
 
+    public static function fromProfileJson(array $raw): Profile
+    {
+        $stats = Stats::fromProfileJson($raw['skillvalues']);
+        $activities = Activities::fromProfileJson($raw['activities']);
+
+        return new static(
+            $stats,
+            $activities,
+            $raw['totalxp'],
+            $raw['totalskill'],
+            (int) preg_replace('/[^0-9]/', '', $raw['rank'])
+        );
+    }
+
     public function getStats(): Stats
     {
         return $this->stats;
