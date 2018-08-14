@@ -42,7 +42,7 @@ class RepositoryTest extends TestCase
     /** @test */
     public function it_returns_an_array_of_all_skills(): void
     {
-        $this->assertTrue(is_array($this->repository->getSkills()));
+        $this->assertTrue(is_array($this->repository->all()));
     }
 
     /** @test */

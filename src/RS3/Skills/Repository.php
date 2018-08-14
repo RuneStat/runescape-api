@@ -54,7 +54,7 @@ class Repository implements IteratorAggregate
      *
      * @return Skill[]
      */
-    public function getSkills(): array
+    public function all(): array
     {
         return $this->skills;
     }
