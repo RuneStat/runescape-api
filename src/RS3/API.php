@@ -7,9 +7,7 @@ namespace RuneStat\RS3;
 use Exception;
 use GuzzleHttp\Exception\RequestException;
 use RuneStat\Exceptions\PlayerNotFound;
-use RuneStat\RS3\Activities\Repository as Activities;
 use RuneStat\HttpClient;
-use RuneStat\RS3\Stats\Repository as Stats;
 
 class API
 {
@@ -63,15 +61,6 @@ class API
 
         $json = json_decode($response->getBody()->getContents(), true);
 
-        $stats = Stats::fromProfileJson($json['skillvalues']);
-        $activities = Activities::fromProfileJson($json['activities']);
-
-        return new Profile(
-            $stats,
-            $activities,
-            $json['totalxp'],
-            $json['totalskill'],
-            (int) preg_replace('/[^0-9]/', '', $json['rank'])
-        );
+        return Profile::fromProfileJson($json);
     }
 }
