@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace RuneStat\RS3\Skills;
 
+use ArrayIterator;
+use IteratorAggregate;
 use RuneStat\RS3\Skill;
 
-class Repository
+class Repository implements IteratorAggregate
 {
     /**
      * @var Skill[]
@@ -102,5 +104,10 @@ class Repository
         $needle = $needle instanceof Skill ? $needle : new $needle;
 
         return $this->findById($needle->getId());
+    }
+
+    public function getIterator(): ArrayIterator
+    {
+        return new ArrayIterator($this->skills);
     }
 }

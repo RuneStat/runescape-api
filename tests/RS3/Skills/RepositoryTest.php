@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\RS3\Skills;
 
+use IteratorAggregate;
 use PHPUnit\Framework\TestCase;
 use RuneStat\RS3\Skills\Farming;
 use RuneStat\RS3\Skills\Fishing;
@@ -30,6 +31,12 @@ class RepositoryTest extends TestCase
         $this->repository = null;
 
         parent::tearDown();
+    }
+
+    /** @test */
+    public function it_should_implement_iterator_aggregate(): void
+    {
+        $this->assertInstanceOf(IteratorAggregate::class, $this->repository);
     }
 
     /** @test */
