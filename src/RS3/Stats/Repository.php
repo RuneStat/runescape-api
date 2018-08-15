@@ -23,7 +23,7 @@ class Repository implements IteratorAggregate
     /**
      * @var int
      */
-    protected $totalXp;
+    protected $totalExperience;
 
     /**
      * @var int
@@ -42,7 +42,7 @@ class Repository implements IteratorAggregate
 
     public function __construct(
         int $totalLevel,
-        int $totalXp,
+        int $totalExperience,
         int $rank,
         Stat $attack,
         Stat $defence,
@@ -105,7 +105,7 @@ class Repository implements IteratorAggregate
         $this->validate();
 
         $this->totalLevel = $totalLevel;
-        $this->totalXp = $totalXp;
+        $this->totalExperience = $totalExperience;
         $this->rank = $rank;
         $this->totalVirtualLevel = array_reduce($this->all(), function (int $carry, Stat $stat) {
             return $carry + $stat->getVirtualLevel();
@@ -161,9 +161,9 @@ class Repository implements IteratorAggregate
         return array_values($this->stats);
     }
 
-    public function getTotalXp(): int
+    public function getTotalExperience(): int
     {
-        return $this->totalXp;
+        return $this->totalExperience;
     }
 
     public function getTotalLevel(): int

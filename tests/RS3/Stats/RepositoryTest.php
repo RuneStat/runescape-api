@@ -211,9 +211,9 @@ class RepositoryTest extends TestCase
     }
 
     /** @test */
-    public function it_should_return_the_total_xp(): void
+    public function it_should_return_the_total_experience(): void
     {
-        $this->assertSame(27, $this->repository->getTotalXp());
+        $this->assertSame(27, $this->repository->getTotalExperience());
     }
 
     /** @test */
