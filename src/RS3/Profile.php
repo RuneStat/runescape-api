@@ -28,7 +28,7 @@ class Profile
     public static function fromProfileJson(array $raw): Profile
     {
         $stats = Stats::fromProfileJson($raw);
-        $activities = Activities::fromProfileJson($raw['activities']);
+        $activities = Activities::fromProfileJson($raw);
 
         return new static(
             $stats,

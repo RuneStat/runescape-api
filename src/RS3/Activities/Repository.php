@@ -22,7 +22,7 @@ class Repository
     {
         $activities = [];
 
-        foreach ($raw as $data) {
+        foreach ($raw['activities'] as $data) {
             array_push($activities, new Activity(
                 DateTime::createFromFormat('d-M-Y H:i', $data['date']),
                 $data['text'],
