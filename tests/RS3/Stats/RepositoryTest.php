@@ -49,6 +49,9 @@ class RepositoryTest extends TestCase
         parent::setUp();
 
         $this->repository = new Repository(
+            27,
+            27,
+            27081,
             new Stat(new Attack(), 1, 1, 1, 1),
             new Stat(new Defence(), 1, 1, 1, 1),
             new Stat(new Strength(), 1, 1, 1, 1),
@@ -104,6 +107,9 @@ class RepositoryTest extends TestCase
         $this->expectException(RuntimeException::class);
 
         new Repository(
+            27,
+            27,
+            1,
             new Stat(new Defence(), 1, 1, 1, 1),
             new Stat(new Defence(), 1, 1, 1, 1),
             new Stat(new Strength(), 1, 1, 1, 1),
@@ -137,7 +143,7 @@ class RepositoryTest extends TestCase
     /** @test */
     public function it_should_instantiate_from_the_profile_json(): void
     {
-        $json = file_get_contents(__DIR__ . '/stats.json');
+        $json = file_get_contents(__DIR__ . '/profile.json');
 
         $repository = Repository::fromProfileJson(
             json_decode($json, true)
@@ -149,7 +155,7 @@ class RepositoryTest extends TestCase
     /** @test */
     public function it_should_handle_non_decimal_experience_that_the_runemetrics_api_returns(): void
     {
-        $json = file_get_contents(__DIR__ . '/stats.json');
+        $json = file_get_contents(__DIR__ . '/profile.json');
 
         $repository = Repository::fromProfileJson(
             json_decode($json, true)
@@ -202,5 +208,62 @@ class RepositoryTest extends TestCase
 
         $this->assertInstanceOf(Stat::class, $stat);
         $this->assertInstanceOf(Divination::class, $stat->getSkill());
+    }
+
+    /** @test */
+    public function it_should_return_the_total_xp(): void
+    {
+        $this->assertSame(27, $this->repository->getTotalXp());
+    }
+
+    /** @test */
+    public function it_should_return_the_total_level(): void
+    {
+        $this->assertSame(27, $this->repository->getTotalLevel());
+    }
+
+    /** @test */
+    public function it_should_return_the_rank(): void
+    {
+        $this->assertSame(27081, $this->repository->getRank());
+    }
+
+    /** @test */
+    public function it_should_calculate_the_total_virtual_level(): void
+    {
+        $repository = new Repository(
+            2736,
+            601991332,
+            1,
+            new Stat(new Attack(), 99, 120, 1, 1),
+            new Stat(new Defence(), 99, 120, 1, 1),
+            new Stat(new Strength(), 99, 120, 1, 1),
+            new Stat(new Constitution(), 99, 120, 1, 1),
+            new Stat(new Ranged(), 99, 120, 1, 1),
+            new Stat(new Prayer(), 99, 120, 1, 1),
+            new Stat(new Magic(), 99, 120, 1, 1),
+            new Stat(new Cooking(), 99, 120, 1, 1),
+            new Stat(new Woodcutting(), 99, 120, 1, 1),
+            new Stat(new Fletching(), 99, 120, 1, 1),
+            new Stat(new Fishing(), 99, 120, 1, 1),
+            new Stat(new Firemaking(), 99, 120, 1, 1),
+            new Stat(new Crafting(), 99, 120, 1, 1),
+            new Stat(new Smithing(), 99, 120, 1, 1),
+            new Stat(new Mining(), 99, 120, 1, 1),
+            new Stat(new Herblore(), 99, 120, 1, 1),
+            new Stat(new Agility(), 99, 120, 1, 1),
+            new Stat(new Thieving(), 99, 120, 1, 1),
+            new Stat(new Slayer(), 120, 120, 1, 1),
+            new Stat(new Farming(), 99, 120, 1, 1),
+            new Stat(new Runecrafting(), 99, 120, 1, 1),
+            new Stat(new Hunter(), 99, 120, 1, 1),
+            new Stat(new Construction(), 99, 120, 1, 1),
+            new Stat(new Summoning(), 99, 120, 1, 1),
+            new Stat(new Dungeoneering(), 120, 120, 1, 1),
+            new Stat(new Divination(), 99, 120, 1, 1),
+            new Stat(new Invention(), 120, 150, 1, 1)
+        );
+
+        $this->assertSame(3270, $repository->getTotalVirtualLevel());
     }
 }

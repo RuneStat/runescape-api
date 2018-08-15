@@ -20,7 +20,30 @@ class Repository implements IteratorAggregate
      */
     protected $stats = [];
 
+    /**
+     * @var int
+     */
+    protected $totalXp;
+
+    /**
+     * @var int
+     */
+    protected $totalLevel;
+
+    /**
+     * @var int
+     */
+    protected $totalVirtualLevel;
+
+    /**
+     * @var int
+     */
+    protected $rank;
+
     public function __construct(
+        int $totalLevel,
+        int $totalXp,
+        int $rank,
         Stat $attack,
         Stat $defence,
         Stat $strength,
@@ -80,13 +103,20 @@ class Repository implements IteratorAggregate
         );
 
         $this->validate();
+
+        $this->totalLevel = $totalLevel;
+        $this->totalXp = $totalXp;
+        $this->rank = $rank;
+        $this->totalVirtualLevel = array_reduce($this->all(), function (int $carry, Stat $stat) {
+            return $carry + $stat->getVirtualLevel();
+        }, 0);
     }
 
     public static function fromProfileJson(array $raw): self
     {
         $stats = [];
 
-        foreach ($raw as $data) {
+        foreach ($raw['skillvalues'] as $data) {
             // For some reason the runemetrics API starts at 0 index and the other endpoints don't 🤷
             $skill = skill_from_id($data['id'] + 1);
 
@@ -103,7 +133,12 @@ class Repository implements IteratorAggregate
             return $a->getSkill()->getId() <=> $b->getSkill()->getId();
         });
 
-        return new static(...$stats);
+        return new static(
+            $raw['totalxp'],
+            $raw['totalskill'],
+            (int) preg_replace('/[^0-9]/', '', $raw['rank']),
+            ...$stats
+        );
     }
 
     protected function validate(): void
@@ -124,6 +159,26 @@ class Repository implements IteratorAggregate
     public function all(): array
     {
         return array_values($this->stats);
+    }
+
+    public function getTotalXp(): int
+    {
+        return $this->totalXp;
+    }
+
+    public function getTotalLevel(): int
+    {
+        return $this->totalLevel;
+    }
+
+    public function getTotalVirtualLevel(): int
+    {
+        return $this->totalVirtualLevel;
+    }
+
+    public function getRank(): int
+    {
+        return $this->rank;
     }
 
     public function findById(int $id): ?Stat
