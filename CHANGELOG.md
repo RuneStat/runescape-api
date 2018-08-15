@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [v0.1.0](https://github.com/RuneStat/runescape-api/releases/tag/v0.1.0)
+
 ### Added
 
 - Classes for all skills under the `RuneStat\RS3\Skills` namespace
