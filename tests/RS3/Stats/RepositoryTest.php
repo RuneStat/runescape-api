@@ -50,7 +50,7 @@ class RepositoryTest extends TestCase
 
         $this->repository = new Repository(
             27,
-            27,
+            5400000000,
             27081,
             new Stat(new Attack(), 1, 1, 1, 1),
             new Stat(new Defence(), 1, 1, 1, 1),
@@ -213,7 +213,7 @@ class RepositoryTest extends TestCase
     /** @test */
     public function it_should_return_the_total_experience(): void
     {
-        $this->assertSame(27, $this->repository->getTotalExperience());
+        $this->assertSame(5400000000, $this->repository->getTotalExperience());
     }
 
     /** @test */
