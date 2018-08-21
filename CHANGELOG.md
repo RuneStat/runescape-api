@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+- `RuneStat\Exceptions\PlayerProfilePrivate` exception
+- `RuneStat\Exceptions\UnknownError` exception
+
+### Fixed
+
+- `RuneStat\RS3\API::getProfile()` will now throw `PlayerProfilePrivate` if RuneMetrics returns `PRIVATE_PROFILE` error
+- `RuneStat\RS3\API::getProfile()` will now throw `UnknownError` if RuneMetrics returns an error we don't handle
+
 ## [v0.1.1]
 
 ### Fixed
