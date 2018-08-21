@@ -10,6 +10,7 @@ use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
 use RuneStat\Exceptions\PlayerNotFound;
 use RuneStat\Exceptions\PlayerProfilePrivate;
+use RuneStat\Exceptions\UnknownError;
 use RuneStat\HttpClient;
 use RuneStat\RS3\API;
 
@@ -82,6 +83,28 @@ class APITest extends TestCase
         });
 
         $this->expectException(PlayerProfilePrivate::class);
+
+        $api = new API();
+
+        $api->getProfile('iWader');
+    }
+
+    /** @test */
+    public function it_should_throw_an_unknown_error_exception(): void
+    {
+        $mock = $this->createMock(HttpClient::class);
+
+        $mock
+            ->expects($this->once())
+            ->method('get')
+            ->withAnyParameters()
+            ->willReturn(new Response(200, [], '{"error":"A_NON_EXISTENT_ERROR","loggedIn":"false"}'));
+
+        Api::setHttpClientResolver(function () use ($mock) {
+            return $mock;
+        });
+
+        $this->expectException(UnknownError::class);
 
         $api = new API();
 
