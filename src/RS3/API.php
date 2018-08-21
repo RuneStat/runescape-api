@@ -7,7 +7,7 @@ namespace RuneStat\RS3;
 use Exception;
 use GuzzleHttp\Exception\RequestException;
 use RuneStat\Exceptions\PlayerNotFound;
-use RuneStat\Exceptions\PlayerProfilePrivate\PlayerProfilePrivate;
+use RuneStat\Exceptions\PlayerProfilePrivate;
 use RuneStat\Exceptions\UnknownError;
 use RuneStat\HttpClient;
 

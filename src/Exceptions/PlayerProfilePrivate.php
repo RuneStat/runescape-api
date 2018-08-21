@@ -2,9 +2,7 @@
 
 declare(strict_types=1);
 
-namespace RuneStat\Exceptions\PlayerProfilePrivate;
-
-use RuneStat\Exceptions\Base;
+namespace RuneStat\Exceptions;
 
 class PlayerProfilePrivate extends Base
 {
