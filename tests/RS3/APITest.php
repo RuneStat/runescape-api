@@ -78,7 +78,7 @@ class APITest extends TestCase
             ->withAnyParameters()
             ->willReturn(new Response(200, [], '{"error":"PROFILE_PRIVATE","loggedIn":"false"}'));
 
-        Api::setHttpClientResolver(function () use ($mock) {
+        API::setHttpClientResolver(function () use ($mock) {
             return $mock;
         });
 
@@ -100,7 +100,7 @@ class APITest extends TestCase
             ->withAnyParameters()
             ->willReturn(new Response(200, [], '{"error":"A_NON_EXISTENT_ERROR","loggedIn":"false"}'));
 
-        Api::setHttpClientResolver(function () use ($mock) {
+        API::setHttpClientResolver(function () use ($mock) {
             return $mock;
         });
 
