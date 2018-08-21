@@ -9,6 +9,7 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
 use RuneStat\Exceptions\PlayerNotFound;
+use RuneStat\Exceptions\PlayerProfilePrivate;
 use RuneStat\HttpClient;
 use RuneStat\RS3\API;
 
@@ -59,6 +60,28 @@ class APITest extends TestCase
         });
 
         $this->expectException(PlayerNotFound::class);
+
+        $api = new API();
+
+        $api->getProfile('iWader');
+    }
+
+    /** @test */
+    public function it_should_throw_a_player_profile_private_exception(): void
+    {
+        $mock = $this->createMock(HttpClient::class);
+
+        $mock
+            ->expects($this->once())
+            ->method('get')
+            ->withAnyParameters()
+            ->willReturn(new Response(200, [], '{"error":"PROFILE_PRIVATE","loggedIn":"false"}'));
+
+        Api::setHttpClientResolver(function () use ($mock) {
+            return $mock;
+        });
+
+        $this->expectException(PlayerProfilePrivate::class);
 
         $api = new API();
 
