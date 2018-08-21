@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [v0.1.1]
+
 ### Fixed
 
 - `RuneStat\RS3\Stats\Repository::getTotalLevel()` was returning the players total experience and vice-versa. It now returns the correct data
