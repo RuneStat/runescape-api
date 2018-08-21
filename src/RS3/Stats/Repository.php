@@ -134,8 +134,8 @@ class Repository implements IteratorAggregate
         });
 
         return new static(
-            $raw['totalxp'],
             $raw['totalskill'],
+            $raw['totalxp'],
             (int) preg_replace('/[^0-9]/', '', $raw['rank']),
             ...$stats
         );
