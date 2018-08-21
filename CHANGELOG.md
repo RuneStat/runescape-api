@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [v0.1.2]
+
 ### Added
 
 - `RuneStat\Exceptions\PlayerProfilePrivate` exception
