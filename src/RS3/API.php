@@ -14,6 +14,11 @@ use RuneStat\HttpClient;
 class API
 {
     /**
+     * @var callable|null
+     */
+    protected static $clientResolver;
+
+    /**
      * @var HttpClient
      */
     protected $client;
@@ -27,7 +32,21 @@ class API
 
     public function __construct()
     {
-        $this->client = new HttpClient();
+        $this->client = self::resolveHttpClient();
+    }
+
+    private function resolveHttpClient(): HttpClient
+    {
+        if (is_callable(self::$clientResolver)) {
+            return call_user_func(self::$clientResolver);
+        }
+
+        return new HttpClient();
+    }
+
+    public static function setHttpClientResolver(callable $resolver): void
+    {
+        self::$clientResolver = $resolver;
     }
 
     /**
