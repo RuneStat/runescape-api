@@ -7,6 +7,8 @@ namespace RuneStat\RS3;
 use Exception;
 use GuzzleHttp\Exception\RequestException;
 use RuneStat\Exceptions\PlayerNotFound;
+use RuneStat\Exceptions\PlayerProfilePrivate\PlayerProfilePrivate;
+use RuneStat\Exceptions\UnknownError;
 use RuneStat\HttpClient;
 
 class API
@@ -60,6 +62,15 @@ class API
         }
 
         $json = json_decode($response->getBody()->getContents(), true);
+
+        if (array_key_exists('error', $json)) {
+            switch (mb_strtoupper($json['error'])) {
+                case 'PROFILE_PRIVATE':
+                    throw new PlayerProfilePrivate($rsn);
+                default:
+                    throw new UnknownError($json['error']);
+            }
+        }
 
         return Profile::fromProfileJson($json);
     }
