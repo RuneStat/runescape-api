@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [v0.1.3]
+
 ### Fixed
 
 - `RuneStat\validate_rsn` correctly validates display names with spaces
