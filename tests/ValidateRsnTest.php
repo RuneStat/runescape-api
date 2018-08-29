@@ -16,6 +16,12 @@ class ValidateRsnTest extends TestCase
     }
 
     /** @test */
+    public function it_validates_an_rsn_with_a_space(): void
+    {
+        $this->assertTrue(validate_rsn('Old Jos'));
+    }
+
+    /** @test */
     public function it_takes_exception_to_an_rsn_that_is_too_long(): void
     {
         $this->assertFalse(validate_rsn('thisdisplaynameistoolong'));
