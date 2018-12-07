@@ -24,7 +24,7 @@ class Stat
     protected $virtualLevel;
 
     /**
-     * @var int
+     * @var int|null
      */
     protected $rank;
 
@@ -33,7 +33,7 @@ class Stat
      */
     protected $experience;
 
-    public function __construct(Skill $skill, int $level, int $virtualLevel, int $rank, int $experience)
+    public function __construct(Skill $skill, int $level, int $virtualLevel, ?int $rank, int $experience)
     {
         $this->skill = $skill;
         $this->level = $level;
@@ -57,7 +57,7 @@ class Stat
         return $this->virtualLevel;
     }
 
-    public function getRank(): int
+    public function getRank(): ?int
     {
         return $this->rank;
     }
