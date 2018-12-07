@@ -6,6 +6,7 @@ namespace RuneStat\RS3;
 
 use Exception;
 use GuzzleHttp\Exception\RequestException;
+use RuneStat\Exceptions\PlayerIsNotAMember;
 use RuneStat\Exceptions\PlayerNotFound;
 use RuneStat\Exceptions\PlayerProfilePrivate;
 use RuneStat\Exceptions\UnknownError;
@@ -86,6 +87,8 @@ class API
             switch (mb_strtoupper($json['error'])) {
                 case 'PROFILE_PRIVATE':
                     throw new PlayerProfilePrivate($rsn);
+                case 'NOT_A_MEMBER':
+                    throw new PlayerIsNotAMember($rsn);
                 default:
                     throw new UnknownError($json['error']);
             }
