@@ -10,10 +10,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 
 - `RuneStat\Exceptions\PlayerIsNotAMember` exception
+- `RuneStat\Exceptions\PlayerHasNoProfile` exception
 
 ### Fixed
 
 - `RuneState\RS3\API::getProfile()` will now throw `PlayerIsNotAMember` if RuneMetrics returns `NOT_A_MEMBER` error
+- `RuneStat\RS3\API::getProfile()` will now throw `PlayerHasNoProfile` if RuneMetrics returns `NO_PROFILE` error
 
 ## [v0.1.3]
 
