@@ -124,7 +124,7 @@ class Repository implements IteratorAggregate
                 $skill,
                 $data['level'],
                 xp_to_virtual_level($skill, (int) ($data['xp'] / 10)),
-                $data['rank'],
+                array_key_exists('rank', $data) ? $data['rank'] : null,
                 (int) ($data['xp'] / 10)
             ));
         }
