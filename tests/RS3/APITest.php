@@ -8,6 +8,7 @@ use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
+use RuneStat\Exceptions\PlayerIsNotAMember;
 use RuneStat\Exceptions\PlayerNotFound;
 use RuneStat\Exceptions\PlayerProfilePrivate;
 use RuneStat\Exceptions\UnknownError;
@@ -83,6 +84,28 @@ class APITest extends TestCase
         });
 
         $this->expectException(PlayerProfilePrivate::class);
+
+        $api = new API();
+
+        $api->getProfile('iWader');
+    }
+
+    /** @test */
+    public function it_should_throw_a_player_is_not_a_member_exception(): void
+    {
+        $mock = $this->createMock(HttpClient::class);
+
+        $mock
+            ->expects($this->once())
+            ->method('get')
+            ->withAnyParameters()
+            ->willReturn(new Response(200, [], '{"error":"NOT_A_MEMBER","loggedIn":"false"}'));
+
+        API::setHttpClientResolver(function () use ($mock) {
+            return $mock;
+        });
+
+        $this->expectException(PlayerIsNotAMember::class);
 
         $api = new API();
 
