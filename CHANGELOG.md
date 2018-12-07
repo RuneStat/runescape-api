@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+- `RuneStat\Exceptions\PlayerIsNotAMember` exception
+
+### Fixed
+
+- `RuneState\RS3\API::getProfile()` will now throw `PlayerIsNotAMember` if RuneMetrics returns `NOT_A_MEMBER` error
+
 ## [v0.1.3]
 
 ### Fixed
