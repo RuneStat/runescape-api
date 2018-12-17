@@ -119,4 +119,15 @@ class ProfileTest extends TestCase
 
         $this->assertInstanceOf(Activities::class, $profile->getActivities());
     }
+
+    /** @test */
+    public function it_should_calculate_the_players_combat_level(): void
+    {
+        $profile = new Profile(
+            $this->makeStats(),
+            new Activities([])
+        );
+
+        $this->assertEquals(3, $profile->getCombatLevel());
+    }
 }
