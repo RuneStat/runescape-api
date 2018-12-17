@@ -14,7 +14,7 @@ use RuneStat\RS3\Skills\Magic;
 use RuneStat\RS3\Skills\Prayer;
 use RuneStat\RS3\Skills\Ranged;
 use RuneStat\RS3\Skills\Summoning;
-use RuneStat\RS3\Skills\Constituion;
+use RuneStat\RS3\Skills\Constitution;
 
 class Profile
 {
