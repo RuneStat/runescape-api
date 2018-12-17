@@ -48,7 +48,7 @@ class ProfileTest extends TestCase
             new Stat(new Attack(), 1, 1, 1, 1),
             new Stat(new Defence(), 1, 1, 1, 1),
             new Stat(new Strength(), 1, 1, 1, 1),
-            new Stat(new Constitution(), 1, 1, 1, 1),
+            new Stat(new Constitution(), 10, 10, 1, 1),
             new Stat(new Ranged(), 1, 1, 1, 1),
             new Stat(new Prayer(), 1, 1, 1, 1),
             new Stat(new Magic(), 1, 1, 1, 1),
