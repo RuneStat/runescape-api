@@ -65,7 +65,7 @@ class Profile
             $this->stats->findByClass(Defence::class),
             $this->stats->findByClass(Constituion::class),
             $this->stats->findByClass(Prayer::class),
-            $this->stats->findByClass(Summoning::class),
+            $this->stats->findByClass(Summoning::class)
         );
     }
 }
