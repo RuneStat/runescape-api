@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [v0.2.0]
+
 ### Added
 
 - `RuneStat\Exceptions\PlayerIsNotAMember` exception
