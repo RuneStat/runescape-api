@@ -63,7 +63,7 @@ class Profile
             $this->stats->findByClass(Magic::class),
             $this->stats->findByClass(Ranged::class),
             $this->stats->findByClass(Defence::class),
-            $this->stats->findByClass(Constituion::class),
+            $this->stats->findByClass(Constitution::class),
             $this->stats->findByClass(Prayer::class),
             $this->stats->findByClass(Summoning::class)
         );
