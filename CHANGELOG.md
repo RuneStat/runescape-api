@@ -7,21 +7,25 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [v0.2.0](https://github.com/RuneStat/runescape-api/releases/tag/v0.2.0)
+
 ### Added
 
 - `RuneStat\Exceptions\PlayerIsNotAMember` exception
+- `RuneStat\Exceptions\PlayerHasNoProfile` exception
 
 ### Fixed
 
-- `RuneState\RS3\API::getProfile()` will now throw `PlayerIsNotAMember` if RuneMetrics returns `NOT_A_MEMBER` error
+- `RuneStat\RS3\API::getProfile()` will now throw `PlayerIsNotAMember` if RuneMetrics returns `NOT_A_MEMBER` error
+- `RuneStat\RS3\API::getProfile()` will now throw `PlayerHasNoProfile` if RuneMetrics returns `NO_PROFILE` error
 
-## [v0.1.3]
+## [v0.1.3](https://github.com/RuneStat/runescape-api/releases/tag/v0.1.3)
 
 ### Fixed
 
 - `RuneStat\validate_rsn` correctly validates display names with spaces
 
-## [v0.1.2]
+## [v0.1.2](https://github.com/RuneStat/runescape-api/releases/tag/v0.1.2)
 
 ### Added
 
@@ -33,7 +37,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - `RuneStat\RS3\API::getProfile()` will now throw `PlayerProfilePrivate` if RuneMetrics returns `PRIVATE_PROFILE` error
 - `RuneStat\RS3\API::getProfile()` will now throw `UnknownError` if RuneMetrics returns an error we don't handle
 
-## [v0.1.1]
+## [v0.1.1](https://github.com/RuneStat/runescape-api/releases/tag/v0.1.1)
 
 ### Fixed
 
