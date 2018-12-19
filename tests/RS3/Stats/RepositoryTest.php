@@ -141,6 +141,45 @@ class RepositoryTest extends TestCase
     }
 
     /** @test */
+    public function it_should_allow_a_null_overall_rank(): void
+    {
+        $repository = new Repository(
+            27,
+            5400000000,
+            null,
+            new Stat(new Attack(), 1, 1, 1, 1),
+            new Stat(new Defence(), 1, 1, 1, 1),
+            new Stat(new Strength(), 1, 1, 1, 1),
+            new Stat(new Constitution(), 1, 1, 1, 1),
+            new Stat(new Ranged(), 1, 1, 1, 1),
+            new Stat(new Prayer(), 1, 1, 1, 1),
+            new Stat(new Magic(), 1, 1, 1, 1),
+            new Stat(new Cooking(), 1, 1, 1, 1),
+            new Stat(new Woodcutting(), 1, 1, 1, 1),
+            new Stat(new Fletching(), 1, 1, 1, 1),
+            new Stat(new Fishing(), 1, 1, 1, 1),
+            new Stat(new Firemaking(), 1, 1, 1, 1),
+            new Stat(new Crafting(), 1, 1, 1, 1),
+            new Stat(new Smithing(), 1, 1, 1, 1),
+            new Stat(new Mining(), 1, 1, 1, 1),
+            new Stat(new Herblore(), 1, 1, 1, 1),
+            new Stat(new Agility(), 1, 1, 1, 1),
+            new Stat(new Thieving(), 1, 1, 1, 1),
+            new Stat(new Slayer(), 1, 1, 1, 1),
+            new Stat(new Farming(), 1, 1, 1, 1),
+            new Stat(new Runecrafting(), 1, 1, 1, 1),
+            new Stat(new Hunter(), 1, 1, 1, 1),
+            new Stat(new Construction(), 1, 1, 1, 1),
+            new Stat(new Summoning(), 1, 1, 1, 1),
+            new Stat(new Dungeoneering(), 1, 1, 1, 1),
+            new Stat(new Divination(), 1, 1, 1, 1),
+            new Stat(new Invention(), 1, 1, 1, 1)
+        );
+
+        $this->assertInstanceOf(Repository::class, $repository);
+    }
+
+    /** @test */
     public function it_should_instantiate_from_the_profile_json(): void
     {
         $json = file_get_contents(__DIR__ . '/profile.json');

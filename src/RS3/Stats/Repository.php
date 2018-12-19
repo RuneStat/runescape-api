@@ -36,14 +36,14 @@ class Repository implements IteratorAggregate
     protected $totalVirtualLevel;
 
     /**
-     * @var int
+     * @var ?int
      */
     protected $rank;
 
     public function __construct(
         int $totalLevel,
         int $totalExperience,
-        int $rank,
+        ?int $rank,
         Stat $attack,
         Stat $defence,
         Stat $strength,
@@ -136,7 +136,7 @@ class Repository implements IteratorAggregate
         return new static(
             $raw['totalskill'],
             $raw['totalxp'],
-            (int) preg_replace('/[^0-9]/', '', $raw['rank']),
+            is_null($raw['rank']) ? null : (int) preg_replace('/[^0-9]/', '', $raw['rank']),
             ...$stats
         );
     }
@@ -176,7 +176,7 @@ class Repository implements IteratorAggregate
         return $this->totalVirtualLevel;
     }
 
-    public function getRank(): int
+    public function getRank(): ?int
     {
         return $this->rank;
     }
