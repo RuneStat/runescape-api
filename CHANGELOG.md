@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [v0.2.1](https://github.com/RuneStat/runescape-api/releases/tag/v0.2.1)
+
 ### Fixed
 
 - `Undefined index: rank` error when fetching a profile
