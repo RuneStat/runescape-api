@@ -305,4 +305,16 @@ class RepositoryTest extends TestCase
 
         $this->assertSame(3270, $repository->getTotalVirtualLevel());
     }
+
+    /** @test */
+    public function it_should_handle_skills_that_are_not_ranked(): void
+    {
+        $json = file_get_contents(__DIR__ . '/profile_with_no_ranks.json');
+
+        $repository = Repository::fromProfileJson(
+            json_decode($json, true)
+        );
+
+        $this->assertInstanceOf(Repository::class, $repository);
+    }
 }
