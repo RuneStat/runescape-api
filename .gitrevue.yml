@@ -1,0 +1,10 @@
+maximum_modifications: 1000
+
+require_assignee: true
+
+require_file_modified:
+  - CHANGELOG.md
+
+paired_files:
+  composer.json:
+    - composer.lock
