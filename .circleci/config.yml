@@ -1,7 +1,54 @@
 version: 2
 
+steps: &steps
+  - checkout
+
+  - run:
+      name: Create Report Directories
+      command: |
+        mkdir -p ./reports/phpcs
+        mkdir -p ./reports/phpunit
+
+  - restore_cache:
+      keys:
+        - composer-dependencies-{{ checksum "composer.lock" }}
+
+  - run:
+      name: Install Composer Dependencies
+      command: composer install
+
+  - save_cache:
+      key: composer-dependencies-{{ checksum "composer.lock" }}
+      paths:
+        - vendor
+
+  - run:
+      name: PHP Code Sniffer
+      command: composer lint -- --report=junit --report-file=./reports/phpcs/junit.xml
+
+  - run:
+      name: PHP Static Analysis
+      command: composer phpstan
+
+  - run:
+      name: PHP Unit Tests
+      command: composer test -- --log-junit ./reports/phpunit/junit.xml
+
+  - store_test_results:
+      path: reports
+
 jobs:
-  test:
+  php-7.1:
+    working_directory: /home/circleci/runescape-api
+
+    docker:
+      - image: laratools/ci:7.1
+
+    steps:
+
+      <<: *steps
+
+  php-7.2:
     working_directory: /home/circleci/runescape-api
 
     docker:
@@ -9,45 +56,34 @@ jobs:
 
     steps:
 
-      - checkout
+      <<: *steps
 
-      - run:
-          name: Create Report Directories
-          command: |
-            mkdir -p ./reports/phpcs
-            mkdir -p ./reports/phpunit
+  php-7.3:
+    working_directory: /home/circleci/runescape-api
 
-      - restore_cache:
-          keys:
-            - composer-dependencies-{{ checksum "composer.lock" }}
+    docker:
+      - image: laratools/ci:7.3
 
-      - run:
-          name: Install Composer Dependencies
-          command: composer install
+    steps:
 
-      - save_cache:
-          key: composer-dependencies-{{ checksum "composer.lock" }}
-          paths:
-            - vendor
+      <<: *steps
 
-      - run:
-          name: PHP Code Sniffer
-          command: composer lint -- --report=junit --report-file=./reports/phpcs/junit.xml
+  php-7.4:
+    working_directory: /home/circleci/runescape-api
 
-      - run:
-          name: PHP Static Analysis
-          command: composer phpstan
+    docker:
+      - image: laratools/ci:7.4
 
-      - run:
-          name: PHP Unit Tests
-          command: composer test -- --log-junit ./reports/phpunit/junit.xml
+    steps:
 
-      - store_test_results:
-          path: reports
+      <<: *steps
 
 workflows:
   version: 2
 
   test:
     jobs:
-      - test
+      - php-7.1
+      - php-7.2
+      - php-7.3
+      - php-7.4
