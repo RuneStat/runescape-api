@@ -39,14 +39,6 @@ version: 2
         path: reports
 
 jobs:
-  php-7.1:
-    working_directory: /home/circleci/runescape-api
-
-    docker:
-      - image: laratools/ci:7.1
-
-    <<: *steps
-
   php-7.2:
     working_directory: /home/circleci/runescape-api
 
@@ -76,7 +68,6 @@ workflows:
 
   test:
     jobs:
-      - php-7.1
       - php-7.2
       - php-7.3
       - php-7.4
