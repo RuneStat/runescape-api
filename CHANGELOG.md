@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+
+- CI now builds against PHP 7.2, 7.3 and 7.4 (Previously we just used 7.2)
+
 ## [v0.2.1](https://github.com/RuneStat/runescape-api/releases/tag/v0.2.1)
 
 ### Fixed
