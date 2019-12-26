@@ -8,6 +8,7 @@ use PHPUnit\Framework\TestCase;
 use RuneStat\RS3\Activities\Repository as Activities;
 use RuneStat\RS3\Profile;
 use RuneStat\RS3\Skills\Agility;
+use RuneStat\RS3\Skills\Archaeology;
 use RuneStat\RS3\Skills\Attack;
 use RuneStat\RS3\Skills\Constitution;
 use RuneStat\RS3\Skills\Construction;
@@ -42,8 +43,8 @@ class ProfileTest extends TestCase
     protected function makeStats(): Stats
     {
         return new Stats(
-            27,
-            27,
+            28,
+            28,
             1,
             new Stat(new Attack(), 1, 1, 1, 1),
             new Stat(new Defence(), 1, 1, 1, 1),
@@ -71,7 +72,8 @@ class ProfileTest extends TestCase
             new Stat(new Summoning(), 1, 1, 1, 1),
             new Stat(new Dungeoneering(), 1, 1, 1, 1),
             new Stat(new Divination(), 1, 1, 1, 1),
-            new Stat(new Invention(), 1, 1, 1, 1)
+            new Stat(new Invention(), 1, 1, 1, 1),
+            new Stat(new Archaeology(), 1, 1, 1, 1)
         );
     }
 
