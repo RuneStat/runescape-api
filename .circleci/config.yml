@@ -1,41 +1,42 @@
 version: 2
 
-steps: &steps
-  - checkout
+<<: &steps
+  steps:
+    - checkout
 
-  - run:
-      name: Create Report Directories
-      command: |
-        mkdir -p ./reports/phpcs
-        mkdir -p ./reports/phpunit
+    - run:
+        name: Create Report Directories
+        command: |
+          mkdir -p ./reports/phpcs
+          mkdir -p ./reports/phpunit
 
-  - restore_cache:
-      keys:
-        - composer-dependencies-{{ checksum "composer.lock" }}
+    - restore_cache:
+        keys:
+          - composer-dependencies-{{ checksum "composer.lock" }}
 
-  - run:
-      name: Install Composer Dependencies
-      command: composer install
+    - run:
+        name: Install Composer Dependencies
+        command: composer install
 
-  - save_cache:
-      key: composer-dependencies-{{ checksum "composer.lock" }}
-      paths:
-        - vendor
+    - save_cache:
+        key: composer-dependencies-{{ checksum "composer.lock" }}
+        paths:
+          - vendor
 
-  - run:
-      name: PHP Code Sniffer
-      command: composer lint -- --report=junit --report-file=./reports/phpcs/junit.xml
+    - run:
+        name: PHP Code Sniffer
+        command: composer lint -- --report=junit --report-file=./reports/phpcs/junit.xml
 
-  - run:
-      name: PHP Static Analysis
-      command: composer phpstan
+    - run:
+        name: PHP Static Analysis
+        command: composer phpstan
 
-  - run:
-      name: PHP Unit Tests
-      command: composer test -- --log-junit ./reports/phpunit/junit.xml
+    - run:
+        name: PHP Unit Tests
+        command: composer test -- --log-junit ./reports/phpunit/junit.xml
 
-  - store_test_results:
-      path: reports
+    - store_test_results:
+        path: reports
 
 jobs:
   php-7.1:
@@ -44,9 +45,7 @@ jobs:
     docker:
       - image: laratools/ci:7.1
 
-    steps:
-
-      <<: *steps
+    <<: *steps
 
   php-7.2:
     working_directory: /home/circleci/runescape-api
@@ -54,9 +53,7 @@ jobs:
     docker:
       - image: laratools/ci:7.2
 
-    steps:
-
-      <<: *steps
+    <<: *steps
 
   php-7.3:
     working_directory: /home/circleci/runescape-api
@@ -64,9 +61,7 @@ jobs:
     docker:
       - image: laratools/ci:7.3
 
-    steps:
-
-      <<: *steps
+    <<: *steps
 
   php-7.4:
     working_directory: /home/circleci/runescape-api
@@ -74,9 +69,7 @@ jobs:
     docker:
       - image: laratools/ci:7.4
 
-    steps:
-
-      <<: *steps
+    <<: *steps
 
 workflows:
   version: 2
