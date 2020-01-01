@@ -26,7 +26,7 @@ final class Farming extends Skill
     /**
      * {@inheritdoc}
      */
-    protected $maxLevel = 99;
+    protected $maxLevel = 120;
 
     /**
      * {@inheritdoc}
