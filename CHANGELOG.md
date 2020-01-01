@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Fixed
 
 - Updated maximum level of Herblore to 120
+- Updated maximum level of Farming to 120
 
 ## [v0.2.1](https://github.com/RuneStat/runescape-api/releases/tag/v0.2.1)
 
