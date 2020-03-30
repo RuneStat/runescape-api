@@ -56,7 +56,7 @@ class FarmingTest extends TestCase
     /** @test */
     public function it_should_return_an_max_level(): void
     {
-        $this->assertSame(99, $this->skill->getMaxLevel());
+        $this->assertSame(120, $this->skill->getMaxLevel());
     }
 
     /** @test */

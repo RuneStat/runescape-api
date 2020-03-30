@@ -11,9 +11,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 - Support for the new Archaeology skill
 
+
+## [v1.0.0](https://github.com/RuneStat/runescape-api/releases/tag/v1.0.0)
+
 ### Changed
 
 - CI now builds against PHP 7.2, 7.3 and 7.4 (Previously we just used 7.2)
+
+### Fixed
+
+- Updated maximum level of Herblore to 120
+- Updated maximum level of Farming to 120
 
 ## [v0.2.1](https://github.com/RuneStat/runescape-api/releases/tag/v0.2.1)
 
