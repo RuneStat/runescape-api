@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+- Support for the new Archaeology skill
+
+
 ## [v1.0.0](https://github.com/RuneStat/runescape-api/releases/tag/v1.0.0)
 
 ### Changed

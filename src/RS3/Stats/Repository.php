@@ -70,7 +70,8 @@ class Repository implements IteratorAggregate
         Stat $summoning,
         Stat $dungeoneering,
         Stat $divination,
-        Stat $invention
+        Stat $invention,
+        Stat $archaeology
     ) {
         $this->stats = compact(
             'attack',
@@ -99,7 +100,8 @@ class Repository implements IteratorAggregate
             'summoning',
             'dungeoneering',
             'divination',
-            'invention'
+            'invention',
+            'archaeology'
         );
 
         $this->validate();
