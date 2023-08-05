@@ -214,7 +214,7 @@ class RepositoryTest extends TestCase
     /** @test */
     public function it_should_return_all_stats(): void
     {
-        $this->assertCount(28, $this->repository->all());
+        $this->assertCount(29, $this->repository->all());
     }
 
     /** @test */
@@ -260,13 +260,13 @@ class RepositoryTest extends TestCase
     /** @test */
     public function it_should_return_the_total_experience(): void
     {
-        $this->assertSame(5600000000, $this->repository->getTotalExperience());
+        $this->assertSame(5800000000, $this->repository->getTotalExperience());
     }
 
     /** @test */
     public function it_should_return_the_total_level(): void
     {
-        $this->assertSame(28, $this->repository->getTotalLevel());
+        $this->assertSame(29, $this->repository->getTotalLevel());
     }
 
     /** @test */
