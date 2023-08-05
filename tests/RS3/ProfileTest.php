@@ -75,7 +75,7 @@ class ProfileTest extends TestCase
             new Stat(new Divination(), 1, 1, 1, 1),
             new Stat(new Invention(), 1, 1, 1, 1),
             new Stat(new Archaeology(), 1, 1, 1, 1),
-            new Stat(new Necromancy(), 1, 1, 1, 1),
+            new Stat(new Necromancy(), 1, 1, 1, 1)
         );
     }
 
