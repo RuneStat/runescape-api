@@ -47,6 +47,7 @@ class Repository implements IteratorAggregate
             new Divination(),
             new Invention(),
             new Archaeology(),
+            new Necromancy(),
         ];
     }
 
