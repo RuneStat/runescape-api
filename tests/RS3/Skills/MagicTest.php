@@ -10,10 +10,7 @@ use RuneStat\RS3\Skill;
 
 class MagicTest extends TestCase
 {
-    /**
-     * @var Skill
-     */
-    protected $skill;
+    protected ?Magic $skill;
 
     public function setUp(): void
     {

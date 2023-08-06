@@ -10,10 +10,7 @@ use RuneStat\RS3\Skill;
 
 class RangedTest extends TestCase
 {
-    /**
-     * @var Skill
-     */
-    protected $skill;
+    protected ?Ranged $skill;
 
     public function setUp(): void
     {

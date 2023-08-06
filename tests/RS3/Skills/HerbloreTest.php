@@ -10,10 +10,7 @@ use RuneStat\RS3\Skill;
 
 class HerbloreTest extends TestCase
 {
-    /**
-     * @var Skill
-     */
-    protected $skill;
+    protected ?Herblore $skill;
 
     public function setUp(): void
     {

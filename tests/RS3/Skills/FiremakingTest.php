@@ -10,10 +10,7 @@ use RuneStat\RS3\Skill;
 
 class FiremakingTest extends TestCase
 {
-    /**
-     * @var Skill
-     */
-    protected $skill;
+    protected ?Firemaking $skill;
 
     public function setUp(): void
     {

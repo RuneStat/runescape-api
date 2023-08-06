@@ -10,10 +10,7 @@ use RuneStat\RS3\Skill;
 
 class SmithingTest extends TestCase
 {
-    /**
-     * @var Skill
-     */
-    protected $skill;
+    protected ?Smithing $skill;
 
     public function setUp(): void
     {

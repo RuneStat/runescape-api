@@ -10,10 +10,7 @@ use RuneStat\RS3\Skill;
 
 class DungeoneeringTest extends TestCase
 {
-    /**
-     * @var Skill
-     */
-    protected $skill;
+    protected ?Dungeoneering $skill;
 
     public function setUp(): void
     {
