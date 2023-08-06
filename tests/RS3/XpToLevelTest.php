@@ -7,6 +7,7 @@ namespace Tests\RS3;
 use PHPStan\Testing\TestCase;
 use RuneStat\RS3\Skills\Attack;
 use RuneStat\RS3\Skills\Dungeoneering;
+
 use function RuneStat\RS3\xp_to_level;
 
 class XpToLevelTest extends TestCase
