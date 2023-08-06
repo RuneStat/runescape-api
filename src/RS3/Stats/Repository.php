@@ -9,6 +9,9 @@ use IteratorAggregate;
 use RuntimeException;
 use RuneStat\RS3\Skill;
 
+use function RuneStat\RS3\skill_from_id;
+use function RuneStat\RS3\xp_to_virtual_level;
+
 class Repository implements IteratorAggregate
 {
     /**

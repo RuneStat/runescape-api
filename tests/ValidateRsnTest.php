@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Tests;
 
-use PHPStan\Testing\TestCase;
+use PHPUnit\Framework\TestCase;
 
 use function RuneStat\validate_rsn;
 

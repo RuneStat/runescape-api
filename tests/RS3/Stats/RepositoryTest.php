@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Tests\RS3\Stats;
 
 use IteratorAggregate;
-use PHPStan\Testing\TestCase;
+use PHPUnit\Framework\TestCase;
 use RuneStat\RS3\Skills\Agility;
 use RuneStat\RS3\Skills\Archaeology;
 use RuneStat\RS3\Skills\Attack;
