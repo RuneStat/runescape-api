@@ -16,7 +16,7 @@
     "require": {
         "php": "^7.2",
         "ext-json": "*",
-        "guzzlehttp/guzzle": "~6.0",
+        "guzzlehttp/guzzle": "^6.0|^7.0",
         "psr/http-message": "^1.0"
     },
     "require-dev": {
@@ -49,7 +49,10 @@
     "config": {
         "preferred-install": "dist",
         "sort-packages": true,
-        "optimize-autoloader": true
+        "optimize-autoloader": true,
+        "allow-plugins": {
+            "ocramius/package-versions": true
+        }
     },
     "minimum-stability": "stable",
     "prefer-stable": true
