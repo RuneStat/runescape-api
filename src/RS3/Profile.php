@@ -38,7 +38,7 @@ class Profile
         $stats = Stats::fromProfileJson($raw);
         $activities = Activities::fromProfileJson($raw);
 
-        return new static(
+        return new self(
             $stats,
             $activities
         );

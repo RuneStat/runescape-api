@@ -136,7 +136,7 @@ class Repository implements IteratorAggregate
             return $a->getSkill()->getId() <=> $b->getSkill()->getId();
         });
 
-        return new static(
+        return new self(
             $raw['totalskill'],
             $raw['totalxp'],
             is_null($raw['rank']) ? null : (int) preg_replace('/[^0-9]/', '', $raw['rank']),
