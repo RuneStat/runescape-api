@@ -39,14 +39,6 @@ version: 2
         path: reports
 
 jobs:
-  php-8.0:
-    working_directory: /home/circleci/runescape-api
-
-    docker:
-      - image: cimg/php:8.0
-
-    <<: *steps
-
   php-8.1:
     working_directory: /home/circleci/runescape-api
 
@@ -68,6 +60,5 @@ workflows:
 
   test:
     jobs:
-      - php-8.0
       - php-8.1
       - php-8.2
