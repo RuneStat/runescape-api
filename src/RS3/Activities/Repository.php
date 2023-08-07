@@ -30,7 +30,7 @@ class Repository
             ));
         }
 
-        return new static($activities);
+        return new self($activities);
     }
 
     public function getActivities(): array

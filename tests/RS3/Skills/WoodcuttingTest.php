@@ -10,10 +10,7 @@ use RuneStat\RS3\Skill;
 
 class WoodcuttingTest extends TestCase
 {
-    /**
-     * @var Skill
-     */
-    protected $skill;
+    protected ?Woodcutting $skill;
 
     public function setUp(): void
     {

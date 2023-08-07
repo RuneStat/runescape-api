@@ -10,10 +10,7 @@ use RuneStat\RS3\Skill;
 
 class AgilityTest extends TestCase
 {
-    /**
-     * @var Skill
-     */
-    protected $skill;
+    protected ?Agility $skill;
 
     public function setUp(): void
     {

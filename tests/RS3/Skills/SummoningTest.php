@@ -10,10 +10,7 @@ use RuneStat\RS3\Skill;
 
 class SummoningTest extends TestCase
 {
-    /**
-     * @var Skill
-     */
-    protected $skill;
+    protected ?Summoning $skill;
 
     public function setUp(): void
     {

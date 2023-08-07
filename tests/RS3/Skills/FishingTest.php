@@ -10,10 +10,7 @@ use RuneStat\RS3\Skill;
 
 class FishingTest extends TestCase
 {
-    /**
-     * @var Skill
-     */
-    protected $skill;
+    protected ?Fishing $skill;
 
     public function setUp(): void
     {

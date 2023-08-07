@@ -10,10 +10,7 @@ use RuneStat\RS3\Skill;
 
 class MiningTest extends TestCase
 {
-    /**
-     * @var Skill
-     */
-    protected $skill;
+    protected ?Mining $skill;
 
     public function setUp(): void
     {

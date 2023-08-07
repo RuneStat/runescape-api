@@ -10,10 +10,7 @@ use RuneStat\RS3\Skill;
 
 class OverallTest extends TestCase
 {
-    /**
-     * @var Skill
-     */
-    protected $skill;
+    protected ?Overall $skill;
 
     public function setUp(): void
     {

@@ -10,10 +10,7 @@ use RuneStat\RS3\Skill;
 
 class DivinationTest extends TestCase
 {
-    /**
-     * @var Skill
-     */
-    protected $skill;
+    protected ?Divination $skill;
 
     public function setUp(): void
     {

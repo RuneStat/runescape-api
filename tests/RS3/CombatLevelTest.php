@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Tests\RS3;
 
 use PHPUnit\Framework\TestCase;
-use function RuneStat\RS3\combat_level;
 use RuneStat\RS3\Skills\Attack;
 use RuneStat\RS3\Skills\Constitution;
 use RuneStat\RS3\Skills\Defence;
@@ -15,6 +14,8 @@ use RuneStat\RS3\Skills\Ranged;
 use RuneStat\RS3\Skills\Strength;
 use RuneStat\RS3\Skills\Summoning;
 use RuneStat\RS3\Stats\Stat;
+
+use function RuneStat\RS3\combat_level;
 
 class CombatLevelTest extends TestCase
 {

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace RuneStat\RS3;
 
-use function RuneStat\RS3\combat_level;
 use RuneStat\RS3\Activities\Repository as Activities;
 use RuneStat\RS3\Stats\Repository as Stats;
 use RuneStat\RS3\Skills\Attack;
@@ -39,7 +38,7 @@ class Profile
         $stats = Stats::fromProfileJson($raw);
         $activities = Activities::fromProfileJson($raw);
 
-        return new static(
+        return new self(
             $stats,
             $activities
         );

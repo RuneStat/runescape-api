@@ -10,10 +10,7 @@ use RuneStat\RS3\Skill;
 
 class ConstitutionTest extends TestCase
 {
-    /**
-     * @var Skill
-     */
-    protected $skill;
+    protected ?Constitution $skill;
 
     public function setUp(): void
     {

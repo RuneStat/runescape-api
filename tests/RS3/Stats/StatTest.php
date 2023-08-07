@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\RS3\Stats;
 
-use PHPStan\Testing\TestCase;
+use PHPUnit\Framework\TestCase;
 use RuneStat\RS3\Skills\Attack;
 use RuneStat\RS3\Stats\Stat;
 
