@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [v2.0.0](https://github.com/RuneStat/runescape-api/releases/tag/v2.0.0)
+
+### Added
+
+- PHP 8.1 support (#26)
+- PHP 8.2 support (#26)
+- Guzzle 7 support (Guzzle 6 is still supported) (#25)
+
+### Removed
+
+- PHP 7.4 support (#26)
+- PHP 7.3 support (#26)
+- PHP 7.2 support (#26)
+
 ## [v1.1.0](https://github.com/RuneStat/runescape-api/releases/tag/v1.1.0)
 
 ### Added
