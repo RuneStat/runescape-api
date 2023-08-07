@@ -6,17 +6,17 @@ namespace RuneStat\RS3\Skills;
 
 use RuneStat\RS3\Skill;
 
-final class Archaeology extends Skill
+final class Necromancy extends Skill
 {
     /**
      * {@inheritdoc}
      */
-    protected $id = 28;
+    protected $id = 29;
 
     /**
      * {@inheritdoc}
      */
-    protected $name = 'archaeology';
+    protected $name = 'necromancy';
 
     /**
      * {@inheritdoc}
@@ -36,7 +36,7 @@ final class Archaeology extends Skill
     /**
      * {@inheritdoc}
      */
-    protected $isCombat = false;
+    protected $isCombat = true;
 
     /**
      * {@inheritdoc}

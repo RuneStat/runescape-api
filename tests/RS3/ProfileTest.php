@@ -26,6 +26,7 @@ use RuneStat\RS3\Skills\Hunter;
 use RuneStat\RS3\Skills\Invention;
 use RuneStat\RS3\Skills\Magic;
 use RuneStat\RS3\Skills\Mining;
+use RuneStat\RS3\Skills\Necromancy;
 use RuneStat\RS3\Skills\Prayer;
 use RuneStat\RS3\Skills\Ranged;
 use RuneStat\RS3\Skills\Runecrafting;
@@ -73,7 +74,8 @@ class ProfileTest extends TestCase
             new Stat(new Dungeoneering(), 1, 1, 1, 1),
             new Stat(new Divination(), 1, 1, 1, 1),
             new Stat(new Invention(), 1, 1, 1, 1),
-            new Stat(new Archaeology(), 1, 1, 1, 1)
+            new Stat(new Archaeology(), 1, 1, 1, 1),
+            new Stat(new Necromancy(), 1, 1, 1, 1)
         );
     }
 

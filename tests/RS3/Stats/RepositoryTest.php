@@ -25,6 +25,7 @@ use RuneStat\RS3\Skills\Hunter;
 use RuneStat\RS3\Skills\Invention;
 use RuneStat\RS3\Skills\Magic;
 use RuneStat\RS3\Skills\Mining;
+use RuneStat\RS3\Skills\Necromancy;
 use RuneStat\RS3\Skills\Prayer;
 use RuneStat\RS3\Skills\Ranged;
 use RuneStat\RS3\Skills\Runecrafting;
@@ -47,8 +48,8 @@ class RepositoryTest extends TestCase
         parent::setUp();
 
         $this->repository = new Repository(
-            28,
-            5600000000,
+            29,
+            5800000000,
             27081,
             new Stat(new Attack(), 1, 1, 1, 1),
             new Stat(new Defence(), 1, 1, 1, 1),
@@ -77,7 +78,8 @@ class RepositoryTest extends TestCase
             new Stat(new Dungeoneering(), 1, 1, 1, 1),
             new Stat(new Divination(), 1, 1, 1, 1),
             new Stat(new Invention(), 1, 1, 1, 1),
-            new Stat(new Archaeology(), 1, 1, 1, 1)
+            new Stat(new Archaeology(), 1, 1, 1, 1),
+            new Stat(new Necromancy(), 1, 1, 1, 1)
         );
     }
 
@@ -106,8 +108,8 @@ class RepositoryTest extends TestCase
         $this->expectException(RuntimeException::class);
 
         new Repository(
-            28,
-            28,
+            29,
+            29,
             1,
             new Stat(new Defence(), 1, 1, 1, 1),
             new Stat(new Defence(), 1, 1, 1, 1),
@@ -136,7 +138,8 @@ class RepositoryTest extends TestCase
             new Stat(new Dungeoneering(), 1, 1, 1, 1),
             new Stat(new Divination(), 1, 1, 1, 1),
             new Stat(new Invention(), 1, 1, 1, 1),
-            new Stat(new Archaeology(), 1, 1, 1, 1)
+            new Stat(new Archaeology(), 1, 1, 1, 1),
+            new Stat(new Necromancy(), 1, 1, 1, 1)
         );
     }
 
@@ -144,8 +147,8 @@ class RepositoryTest extends TestCase
     public function it_should_allow_a_null_overall_rank(): void
     {
         $repository = new Repository(
-            28,
-            5600000000,
+            29,
+            5800000000,
             null,
             new Stat(new Attack(), 1, 1, 1, 1),
             new Stat(new Defence(), 1, 1, 1, 1),
@@ -174,7 +177,8 @@ class RepositoryTest extends TestCase
             new Stat(new Dungeoneering(), 1, 1, 1, 1),
             new Stat(new Divination(), 1, 1, 1, 1),
             new Stat(new Invention(), 1, 1, 1, 1),
-            new Stat(new Archaeology(), 1, 1, 1, 1)
+            new Stat(new Archaeology(), 1, 1, 1, 1),
+            new Stat(new Necromancy(), 1, 1, 1, 1)
         );
 
         $this->assertInstanceOf(Repository::class, $repository);
@@ -207,7 +211,7 @@ class RepositoryTest extends TestCase
     /** @test */
     public function it_should_return_all_stats(): void
     {
-        $this->assertCount(28, $this->repository->all());
+        $this->assertCount(29, $this->repository->all());
     }
 
     /** @test */
@@ -253,13 +257,13 @@ class RepositoryTest extends TestCase
     /** @test */
     public function it_should_return_the_total_experience(): void
     {
-        $this->assertSame(5600000000, $this->repository->getTotalExperience());
+        $this->assertSame(5800000000, $this->repository->getTotalExperience());
     }
 
     /** @test */
     public function it_should_return_the_total_level(): void
     {
-        $this->assertSame(28, $this->repository->getTotalLevel());
+        $this->assertSame(29, $this->repository->getTotalLevel());
     }
 
     /** @test */
@@ -302,10 +306,11 @@ class RepositoryTest extends TestCase
             new Stat(new Dungeoneering(), 120, 120, 1, 1),
             new Stat(new Divination(), 99, 120, 1, 1),
             new Stat(new Invention(), 120, 150, 1, 1),
-            new Stat(new Archaeology(), 120, 120, 1, 1)
+            new Stat(new Archaeology(), 120, 120, 1, 1),
+            new Stat(new Necromancy(), 120, 120, 1, 1)
         );
 
-        $this->assertSame(3390, $repository->getTotalVirtualLevel());
+        $this->assertSame(3510, $repository->getTotalVirtualLevel());
     }
 
     /** @test */
