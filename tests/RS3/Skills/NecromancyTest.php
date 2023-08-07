@@ -6,17 +6,17 @@ namespace Tests\RS3\Skills;
 
 use PHPUnit\Framework\TestCase;
 use RuneStat\RS3\Skill;
-use RuneStat\RS3\Skills\Archaeology;
+use RuneStat\RS3\Skills\Necromancy;
 
-class ArchaeologyTest extends TestCase
+class NecromancyTest extends TestCase
 {
-    protected ?Archaeology $skill;
+    protected ?Necromancy $skill;
 
     public function setUp(): void
     {
         parent::setUp();
 
-        $this->skill = new Archaeology();
+        $this->skill = new Necromancy();
     }
 
     public function tearDown(): void
@@ -35,13 +35,13 @@ class ArchaeologyTest extends TestCase
     /** @test */
     public function it_should_return_an_id(): void
     {
-        $this->assertSame(28, $this->skill->getId());
+        $this->assertSame(29, $this->skill->getId());
     }
 
     /** @test */
     public function it_should_return_a_skill_name(): void
     {
-        $this->assertSame('archaeology', $this->skill->getName());
+        $this->assertSame('necromancy', $this->skill->getName());
     }
 
     /** @test */
@@ -65,7 +65,7 @@ class ArchaeologyTest extends TestCase
     /** @test */
     public function it_should_return_if_its_a_combat_skill(): void
     {
-        $this->assertFalse($this->skill->isCombat());
+        $this->assertTrue($this->skill->isCombat());
     }
 
     /** @test */
