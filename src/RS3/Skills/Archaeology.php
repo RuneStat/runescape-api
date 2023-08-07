@@ -41,7 +41,7 @@ final class Archaeology extends Skill
     /**
      * {@inheritdoc}
      */
-    protected $isMembers = false;
+    protected $isMembers = true;
 
     /**
      * {@inheritdoc}
