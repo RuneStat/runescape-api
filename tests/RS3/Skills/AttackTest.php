@@ -10,10 +10,7 @@ use RuneStat\RS3\Skill;
 
 class AttackTest extends TestCase
 {
-    /**
-     * @var Skill
-     */
-    protected $skill;
+    protected ?Attack $skill;
 
     public function setUp(): void
     {

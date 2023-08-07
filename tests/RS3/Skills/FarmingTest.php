@@ -10,10 +10,7 @@ use RuneStat\RS3\Skill;
 
 class FarmingTest extends TestCase
 {
-    /**
-     * @var Skill
-     */
-    protected $skill;
+    protected ?Farming $skill;
 
     public function setUp(): void
     {

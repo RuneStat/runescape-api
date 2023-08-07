@@ -103,7 +103,7 @@ class Repository implements IteratorAggregate
      */
     public function findByClass($needle): ?Skill
     {
-        $needle = $needle instanceof Skill ? $needle : new $needle;
+        $needle = $needle instanceof Skill ? $needle : new $needle();
 
         return $this->findById($needle->getId());
     }

@@ -10,10 +10,7 @@ use RuneStat\RS3\Skill;
 
 class FletchingTest extends TestCase
 {
-    /**
-     * @var Skill
-     */
-    protected $skill;
+    protected ?Fletching $skill;
 
     public function setUp(): void
     {

@@ -10,10 +10,7 @@ use RuneStat\HttpClient;
 
 class HttpClientTest extends TestCase
 {
-    /**
-     * @var HttpClient
-     */
-    protected $client;
+    protected ?HttpClient $client;
 
     public function setUp(): void
     {

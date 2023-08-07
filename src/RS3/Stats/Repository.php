@@ -6,10 +6,11 @@ namespace RuneStat\RS3\Stats;
 
 use ArrayIterator;
 use IteratorAggregate;
-use RuneStat\RS3\Skill;
-use function RuneStat\RS3\xp_to_virtual_level;
-use function RuneStat\RS3\skill_from_id;
 use RuntimeException;
+use RuneStat\RS3\Skill;
+
+use function RuneStat\RS3\skill_from_id;
+use function RuneStat\RS3\xp_to_virtual_level;
 
 class Repository implements IteratorAggregate
 {
@@ -137,7 +138,7 @@ class Repository implements IteratorAggregate
             return $a->getSkill()->getId() <=> $b->getSkill()->getId();
         });
 
-        return new static(
+        return new self(
             $raw['totalskill'],
             $raw['totalxp'],
             is_null($raw['rank']) ? null : (int) preg_replace('/[^0-9]/', '', $raw['rank']),
@@ -215,7 +216,7 @@ class Repository implements IteratorAggregate
      */
     public function findByClass($needle): ?Stat
     {
-        $needle = $needle instanceof Skill ? $needle : new $needle;
+        $needle = $needle instanceof Skill ? $needle : new $needle();
 
         return $this->findById($needle->getId());
     }

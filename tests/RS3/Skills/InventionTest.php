@@ -10,10 +10,7 @@ use RuneStat\RS3\Skill;
 
 class InventionTest extends TestCase
 {
-    /**
-     * @var Skill
-     */
-    protected $skill;
+    protected ?Invention $skill;
 
     public function setUp(): void
     {

@@ -14,10 +14,7 @@ use RuneStat\RS3\Skills\Smithing;
 
 class RepositoryTest extends TestCase
 {
-    /**
-     * @var Repository
-     */
-    protected $repository;
+    protected ?Repository $repository;
 
     public function setUp(): void
     {
