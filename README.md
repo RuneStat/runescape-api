@@ -7,7 +7,7 @@ Provides an interface to interact with the RuneScape site and APIs.
 ```sh
 composer require runestat/runescape-api
 ```
- 
+
 ## Copyright & License
 
-Copyright (c) 2018 - Released under the [MIT license](LICENSE).
+Copyright (c) 2023 - Released under the [MIT license](LICENSE).
