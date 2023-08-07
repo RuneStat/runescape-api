@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [v2.1.0](https://github.com/RuneStat/runescape-api/releases/tag/v2.1.0)
+
+### Added
+
+- Necromancy 💀
+
 ## [v2.0.0](https://github.com/RuneStat/runescape-api/releases/tag/v2.0.0)
 
 ### Added
