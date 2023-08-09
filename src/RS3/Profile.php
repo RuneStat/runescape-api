@@ -14,6 +14,7 @@ use RuneStat\RS3\Skills\Prayer;
 use RuneStat\RS3\Skills\Ranged;
 use RuneStat\RS3\Skills\Summoning;
 use RuneStat\RS3\Skills\Constitution;
+use RuneStat\RS3\Skills\Necromancy;
 
 class Profile
 {
@@ -64,7 +65,8 @@ class Profile
             $this->stats->findByClass(Defence::class),
             $this->stats->findByClass(Constitution::class),
             $this->stats->findByClass(Prayer::class),
-            $this->stats->findByClass(Summoning::class)
+            $this->stats->findByClass(Summoning::class),
+            $this->stats->findByClass(Necromancy::class)
         );
     }
 }

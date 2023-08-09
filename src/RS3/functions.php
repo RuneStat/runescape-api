@@ -49,12 +49,14 @@ if (! function_exists('\RuneStat\RS3\combat_level')) {
         Stat $defence,
         Stat $constitution,
         Stat $prayer,
-        Stat $summoning
+        Stat $summoning,
+        Stat $necromancy
     ): int {
         $highest = max(
             $attack->getLevel() + $strength->getLevel(),
             2 * $magic->getLevel(),
-            2 * $ranged->getLevel()
+            2 * $ranged->getLevel(),
+            2 * $necromancy->getLevel()
         );
 
         $rest = (
