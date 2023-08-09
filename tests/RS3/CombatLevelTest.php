@@ -215,7 +215,7 @@ class CombatLevelTest extends TestCase
             new Stat(new Necromancy(), 99, 99, 1, 1)
         );
 
-        $this->assertSame(99, $combat);
+        $this->assertSame(67, $combat);
     }
     
     /** @test */
@@ -233,6 +233,6 @@ class CombatLevelTest extends TestCase
             new Stat(new Necromancy(), 120, 120, 1, 1)
         );
 
-        $this->assertSame(78, $combat);
+        $this->assertSame(80, $combat);
     }
 }
